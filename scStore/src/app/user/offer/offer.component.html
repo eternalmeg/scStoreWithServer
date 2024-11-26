@@ -1,0 +1,70 @@
+<div class="contact">
+
+
+  <div class="register">
+    <form #form="ngForm" (ngSubmit)="submitHandler(form)">
+
+      <div class="header">
+        <h3>Create your offer here</h3>
+        <app-error-message />
+      </div>
+
+      <div class="fields">
+        <div class="field">
+        <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel"  required value="">
+        <div class="error" *ngIf="brand.touched">
+          <div *ngIf="brand.errors?.['required']">
+            Brand is required!
+          </div>
+        </div>
+        </div>
+
+
+        <div class="field">
+
+        <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required value="">
+        <div class="error" *ngIf="model.touched">
+          <div *ngIf="model.errors?.['required']">
+            Model is required!
+          </div>
+        </div>
+        </div>
+
+        <div class="field">
+
+        <input type="text" id="description" name="description" placeholder="description" ngModel #description="ngModel" required value="">
+        <div class="error" *ngIf="description.touched">
+          <div *ngIf="description.errors?.['required']">
+            Description is required!
+          </div>
+        </div>
+        </div>
+
+        <div class="field">
+
+        <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required value="">
+        <div class="error" *ngIf="price.touched">
+          <div *ngIf="price.errors?.['required']">
+            Price is required!
+          </div>
+        </div>
+        </div>
+
+        <div class="field">
+
+        <input type="text" id="image" name="image" placeholder="image URL" ngModel #image="ngModel" required value="">
+        <div class="error" *ngIf="image.touched">
+          <div *ngIf="image.errors?.['required']">
+            Image is required!
+          </div>
+        </div>
+        </div>
+
+
+      <div class="button">
+        <input type="submit" value="Create Product" />
+      </div>
+</div>
+    </form>
+  </div>
+</div>

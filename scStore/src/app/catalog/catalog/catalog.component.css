@@ -1,0 +1,40 @@
+button {
+  width: 200px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 20px;
+  background-color: #252525;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 10px 0;
+  margin-top: 10px;
+  transition: ease-in all 0.5s;
+}
+
+button:hover {
+  background: #48ca95;
+  transition: ease-in all 0.5s;
+}
+.empty {
+  text-align: center;
+  width: 100%;
+}
+.no-products {
+  color: red;
+
+}
+
+img {
+  max-width: 300px;
+  height: 300px;
+  object-fit: contain;
+  overflow: hidden;
+  border: 1px solid green;
+  border-radius: 5px;
+}
+
+
+.read_more:hover {
+  background-color: green;
+
+}

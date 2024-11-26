@@ -1,0 +1,40 @@
+
+<div class="contact">
+  <div class="register">
+
+
+    <form #form="ngForm" (ngSubmit)="submitHandler()">
+      <div class="header">
+        <h3>Edit your offer here</h3>
+        <app-error-message />
+      </div>
+      <div class="fields">
+
+      <div class="field">
+        <input type="text" id="brand" name="brand" ngModel #brand="ngModel">
+      </div>
+      <div class="field">
+        <input type="text" id="model" name="model" ngModel #model="ngModel">
+      </div>
+      <div class="field">
+        <input type="text" id="description" name="description" ngModel #description>
+      </div>
+      <div class="field">
+        <input type="text" id="price" name="price" ngModel #price="ngModel">
+      </div>
+      <div class="field">
+        <input type="text" id="image" name="image" ngModel #price="ngModel">
+      </div>
+        <div class="button">
+          <input type="submit" class="btn" value="Edit Product" />
+        </div>
+
+
+      </div>
+    </form>
+
+
+
+
+  </div>
+  </div>

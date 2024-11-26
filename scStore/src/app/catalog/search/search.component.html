@@ -1,0 +1,30 @@
+<div class="search-container">
+  <h2>Search Devices by Brand</h2>
+
+  <!-- Поле за въвеждане на бранд -->
+  <input
+    type="text"
+    [(ngModel)]="searchQuery"
+    placeholder="Enter brand name..."
+    (keyup.enter)="onSearch()" />
+
+  <button (click)="onSearch()">Search</button>
+
+  <!-- Показване на резултати -->
+  <div *ngIf="devices.length > 0; else noResults">
+    <h3>Search Results:</h3>
+    <ul>
+      <li *ngFor="let device of devices">
+        <h4>{{ device.brand }} {{ device.model }}</h4>
+        <p>{{ device.description }}</p>
+        <p><strong>Price:</strong> {{ device.price }} BGN</p>
+        <img [src]="device.image" alt="{{ device.brand }}" class="device-image" />
+        <button [routerLink]="['/', 'device-details', device._id]">View Details</button>
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noResults>
+    <p *ngIf="searchQuery">No results found for "{{ searchQuery }}"</p>
+  </ng-template>
+</div>

@@ -1,0 +1,39 @@
+table {
+  width: 100%;
+  height: auto;
+  color: white;
+
+  text-align: center;
+
+}
+
+table td{
+  border-bottom: 1px solid whitesmoke;
+  width: 30%;
+  height: 80px;
+
+}
+
+.laptop {
+  padding-top: 300px;
+}
+
+.total {
+  font-weight: bold;
+  color: #34ce57;
+}
+
+.buttons {
+  gap: 2em;
+}
+
+.read_more {
+  border-radius: 30px;
+}
+.clear-btn {
+  width: 50%;
+  border: 1px solid whitesmoke;
+  border-radius: 30px;
+  background-color: transparent;
+  color: whitesmoke;
+}

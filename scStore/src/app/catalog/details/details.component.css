@@ -1,0 +1,79 @@
+
+.three_box1 {
+  background-color: whitesmoke;
+  padding-top: 90px;
+  display: block;
+  justify-content: center;
+
+}
+
+.box_text_test {
+  background:whitesmoke;
+  text-align: center;
+  padding: 50px 20px 20px 20px;
+  border: #48ca95 solid 1px;
+  border-radius: 15px;
+  margin-bottom: 90px;
+  background-color: white;
+  width:300% ;
+  margin-top: 100px;
+
+
+}
+
+.box_text_test h3 {
+  color: black;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+.box_text_test p {
+  font-size: 17px;
+  color: black;
+  line-height: 30px;
+}
+
+
+
+.edit-btn {
+  font-size: 22px;
+  transition: ease-in all 0.5s;
+  background-color: #48ca95;
+
+  color: #fff;
+  padding: 15px 0px;
+  max-width:150px;
+  width: 100%;
+  display: block;
+  margin-top: 30px !important;
+  margin: 0 auto;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+.edit-btn:hover {
+  background-color: #000;
+  transition: ease-in all 0.5s;
+  color: #fff;
+}
+
+.profile-btn {
+  display: flex;
+  flex-direction: row;
+}
+
+.computer-reg {
+
+}
+
+.price {
+  font-weight: bold;
+}
+.price span {
+  color: red;
+  font-size: 1.9em;
+}
+
+

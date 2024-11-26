@@ -1,0 +1,190 @@
+.three_box1 {
+  background-color: whitesmoke;
+  padding-top: 90px;
+  display: block;
+  justify-content: center;
+
+}
+.three_box1 h3 {
+  font-style: italic;
+}
+
+.box_text_test {
+  background:whitesmoke;
+text-align: center;
+  padding: 50px 20px 20px 20px;
+  border: #48ca95 solid 1px;
+  border-radius: 15px;
+  margin-bottom: 90px;
+  width:300% ;
+  margin-top: 100px;
+
+
+}
+
+.box_text_test h3 {
+  color: black;
+  font-size: 20px;
+  line-height: 22px;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+.box_text_test p {
+  font-size: 17px;
+  color: black;
+  line-height: 30px;
+}
+
+.box_text_test i {
+  padding-bottom: 25px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.edit-btn {
+  font-size: 22px;
+  transition: ease-in all 0.5s;
+  background-color: #48ca95;
+
+  color: #fff;
+  padding: 15px 0px;
+  max-width:150px;
+  width: 100%;
+  display: block;
+  margin-top: 30px !important;
+  margin: 0 auto;
+  border-radius: 40px;
+  font-weight: 500;
+}
+
+.edit-btn:hover {
+  background-color: #000;
+  transition: ease-in all 0.5s;
+  color: #fff;
+}
+
+.profile-btn {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.computer-reg {
+
+}
+.header {
+  background-color: transparent;
+}
+.header h3 {
+  font-size: 2em;
+}
+.register{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding-top: 100px;
+
+}
+.register form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 50em;
+  border: 1px solid;
+
+  color: whitesmoke;
+  min-height: 20em;
+  border-radius: 1em;
+  padding: 1em 0;
+}
+.register form .header{
+  position: relative;
+  text-align: center;
+
+}
+.register form app-error-message{
+  position: absolute;
+}
+.register form h3{
+  font-size: 2em;
+  text-transform: uppercase;
+  margin-bottom: 0;
+
+}
+.register form .fields{
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.register form .fields .field{
+  background-color: transparent;
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+}
+.register form .fields .field {
+  font-size: 16px;
+  font-weight: bolder;
+}
+.register form .fields .field input{
+  background-color: transparent;
+  color: whitesmoke;
+  min-width: 15em;
+  min-height: 2em;
+  border-bottom: 4px solid whitesmoke;
+
+}
+.button {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.button input {
+  border-radius: 30px;
+}
+
+.register form .fields .button input{
+  background-color: transparent;
+  color: whitesmoke;
+  border: 2px solid whitesmoke;
+  padding: 0.5em 1em;
+  font-size: 1.5em;
+}
+.register form .fields .button input:hover{
+  background-color: #21b443;
+  color: white;
+  border-color: white;
+  cursor: pointer;
+}
+
+h5 {
+  font-style: italic;
+  font-size: 1em;
+  font-weight: normal;
+}
+h5 a {
+  color: #34ce57;
+  font-size: 1em;
+}
+
+.error{
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  font-style: italic;
+  width: 100%;
+  text-align: center;
+  top: 2.2em;
+  left: 0em;
+  color: red;
+}
+
+
+
