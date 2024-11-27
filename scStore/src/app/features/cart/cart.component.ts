@@ -50,9 +50,9 @@ export class CartComponent implements OnInit{
     this.deviceService.deleteMultipleDevices(deviceIds).subscribe({
       next: (response) => {
         alert(response.message);
-        this.devices = []; // Изчистване на списъка с устройства от интерфейса
-        this.hasDevices = false; // Обновяване на състоянието
-        this.price = 0; // Нулиране на общата цена
+        this.devices = [];
+        this.hasDevices = false;
+        this.price = 0;
       },
       error: (err) => {
         console.error('Error deleting devices', err);

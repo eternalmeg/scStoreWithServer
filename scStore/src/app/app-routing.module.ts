@@ -13,15 +13,16 @@ import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {UserOffersComponent} from "./user/user-offers/user-offers.component";
 import {CartComponent} from "./features/cart/cart.component";
 import {SearchComponent} from "./catalog/search/search.component";
+import {canActivate, canManipulate, canNotActivate} from "./core/guards/auth.guards";
 
 const routes: Routes = [
   {path: '',redirectTo: '/home', pathMatch: "full"},
   {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'my-profile', component: ProfileComponent},
-  {path: 'edit-offer', component: OfferComponent},
-  {path: 'edit-offer/:id', component: EditOfferComponent},
+  {path: 'login', component: LoginComponent, canActivate: [canActivate]},
+  {path: 'register', component: RegisterComponent, canActivate: [canActivate]},
+  {path: 'my-profile', component: ProfileComponent, canActivate: [canActivate]},
+  {path: 'edit-offer', component: OfferComponent, canActivate: [canManipulate]},
+  {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [canManipulate]},
   {path: 'my-offers', component: UserOffersComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'device-details/:id', component: DetailsComponent},
