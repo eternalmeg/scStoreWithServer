@@ -55,6 +55,9 @@ export class DeviceService {
   cancelPrefer(deviceId: string) {
     return this.http.post<{message: string}>(`${this.api}/devices/cancel/${deviceId}`, {});
   }
+  cancelAllPrefer(deviceIds: (string| undefined)[]) {
+    return this.http.post<{ message: string }>('http://localhost:3000/devices/cancel-all', { deviceIds });
+  }
 
 
 }

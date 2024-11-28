@@ -81,7 +81,23 @@ router.post('/cancel/:deviceId', isAuth, async (req,res) => {
     }catch (err){
         res.status(400).json({message: err.message})
     }
-})
+});
+
+router.post('/cancel-all', isAuth, async (req,res) => {
+    const { deviceIds } = req.body;
+    const userId = req.user._id;
+
+    if(!deviceIds || deviceIds.length === 0) {
+        return res.status(400).json({message: "No devices provided!"});
+    }
+
+    try {
+        await deviceService.cancelMultiPrefer(deviceIds, userId);
+        res.status(200).json({message: "Canceled successfully"})
+    } catch (err) {
+        res.status(500).json({message: err.message})
+    }
+});
 
 
 //@@@@@@@@@@@@@@@@@@
@@ -96,7 +112,7 @@ router.delete('/:deviceId', isAuth, async (req, res) => {
     } catch (err) {
         res.status(401).json({message: err.message})
     }
-})
+});
 
 
 router.put('/:deviceId', isAuth, async (req, res) => {
@@ -109,7 +125,7 @@ router.put('/:deviceId', isAuth, async (req, res) => {
         res.status(401).json({message: err.message})
     }
 
-})
+});
 
 
 router.post('/delete-multiple', isAuth, async (req, res) => {
@@ -142,7 +158,7 @@ router.get('/search/:brand', async (req, res) => {
     }
 
 
-})
+});
 
 
 module.exports = router;

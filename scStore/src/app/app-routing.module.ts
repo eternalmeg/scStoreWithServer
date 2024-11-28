@@ -21,7 +21,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent, canActivate: [canActivate]},
   {path: 'register', component: RegisterComponent, canActivate: [canActivate]},
   {path: 'my-profile', component: ProfileComponent, canActivate: [canActivate]},
-  {path: 'edit-offer', component: OfferComponent, canActivate: [canManipulate]},
+  {path: 'create-offer', component: OfferComponent, canActivate: [canManipulate]},
   {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [canManipulate]},
   {path: 'my-offers', component: UserOffersComponent},
   {path: 'catalog', component: CatalogComponent},

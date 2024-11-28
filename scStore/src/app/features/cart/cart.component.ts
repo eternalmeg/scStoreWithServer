@@ -83,5 +83,30 @@ export class CartComponent implements OnInit{
     })
   }
 
+  cancelAllHandler() {
+    if(!this.devices || this.devices.length === 0) {
+      alert("No devices to cancel");
+      return;
+    }
+    if(!confirm("Are you sure you want to cancel your order")) {
+      return;
+    }
+
+    const deviceIds = this.devices.map(device => device._id);
+    this.deviceService.cancelAllPrefer(deviceIds).subscribe({
+      next: (response) => {
+        alert(response.message);
+        this.devices = [];
+        this.hasDevices = false;
+        this.price = 0;
+      },
+      error: (err) => {
+        console.error('Error canceling devices', err);
+        alert('Failed to cancel. Please try again later.')
+      }
+
+    })
+  }
+
 
 }
