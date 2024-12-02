@@ -13,17 +13,20 @@ import {ErrorPageComponent} from "./shared/error-page/error-page.component";
 import {UserOffersComponent} from "./user/user-offers/user-offers.component";
 import {CartComponent} from "./features/cart/cart.component";
 import {SearchComponent} from "./catalog/search/search.component";
-import {canActivate, canManipulate, canNotActivate} from "./core/guards/auth.guards";
+import { AuthActivate } from "./core/guards/auth.guard";
+import {guestGuard} from "./core/guards/guest.guard";
+
+
 
 const routes: Routes = [
   {path: '',redirectTo: '/home', pathMatch: "full"},
   {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent, canActivate: [canActivate]},
-  {path: 'register', component: RegisterComponent, canActivate: [canActivate]},
-  {path: 'my-profile', component: ProfileComponent, canActivate: [canActivate]},
-  {path: 'create-offer', component: OfferComponent, canActivate: [canManipulate]},
-  {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [canManipulate]},
-  {path: 'my-offers', component: UserOffersComponent},
+  {path: 'login', component: LoginComponent, canActivate: [guestGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [guestGuard]},
+  {path: 'my-profile', component: ProfileComponent, canActivate: [AuthActivate]},
+  {path: 'create-offer', component: OfferComponent, canActivate: [AuthActivate]},
+  {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [AuthActivate]},
+  {path: 'my-offers', component: UserOffersComponent, canActivate: [AuthActivate]},
   {path: 'catalog', component: CatalogComponent},
   {path: 'device-details/:id', component: DetailsComponent},
   {path: 'cart', component: CartComponent},

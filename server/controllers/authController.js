@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
         res.json(result);
 
     } catch (err) {
-        res.status(401).json({message: "err"})
+        res.status(401).json({message: "User already exist"})
 
     }
 

@@ -23,6 +23,7 @@ export class AppInterceptor implements HttpInterceptor {
       withCredentials: true,
     });
 
+
     return next.handle(req).pipe(
       catchError((err) => {
         if(err.status === 404){

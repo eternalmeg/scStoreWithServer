@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {BehaviorSubject, Subscription, tap} from "rxjs";
+import {BehaviorSubject, map, Subscription, tap} from "rxjs";
 import {User} from "../types/user";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
@@ -14,6 +14,12 @@ export class UserService implements OnDestroy{
   user: User | undefined;
   api ='http://localhost:3000'
 
+  get isLoggedIn$() {
+    return this.user$.pipe(
+      tap(user => console.log('Reactive isLoggedIn:', !!user)), // Дебъг
+      map(user => !!user) // Преобразуваме потребителя в булева стойност
+    );
+  }
 
   get isLoggedIn(): boolean {
     return !!this.user;
@@ -46,7 +52,9 @@ export class UserService implements OnDestroy{
   login(email: string, password: string) {
     return this.http
       .post<User>(`${this.api}/auth/login`, { email, password })
-      .pipe(tap((user) => this.user$$.next(user)));
+      .pipe(tap((user) => {console.log('login response', user); this.user$$.next(user);
+        this.getProfile().subscribe();
+      }) );
   }
 
   logout() {

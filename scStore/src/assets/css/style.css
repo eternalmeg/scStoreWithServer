@@ -705,66 +705,7 @@ ul.btn li:last-child {
 
 /** customer section **/
 
-.customer {
-     padding: 90px 0px 140px 0px;
-     background: #fff;
-}
 
-.customer .titlepage h2 {
-     max-width: 385px;
-}
-
-.customer_Carousel .carousel-caption {
-     position: inherit;
-     padding: 0;
-}
-
-.customer_box {
-     text-align: center;
-}
-
-.test_box {
-     text-align: left;
-}
-
-.customer_Carousel .test_box h4 {
-     font-size: 30px;
-     color: #030305;
-     line-height: 28px;
-     display: block;
-     font-weight: 600;
-     padding: 30px 0px 30px 0px;
-     text-align: left;
-}
-
-.customer_Carousel .test_box p {
-     font-size: 17px;
-     line-height: 28px;
-     color: #0b0b0c;
-     text-align: left;
-}
-
-.customer_Carousel .carousel-indicators {
-     bottom: -50px;
-     right: inherit;
-     margin-left: 4px;
-}
-
-.customer_Carousel .carousel-indicators li {
-     width: 20px;
-     height: 20px;
-     border-radius: 20px;
-     background: #48ca95;
-}
-
-.customer_Carousel .carousel-indicators li.active {
-     background: #4f4aa6;
-}
-
-#myCarousel .carousel-control-next-icon,
-#myCarousel .carousel-control-prev-icon {
-     display: none;
-}
 
 
 /** end customer section **/

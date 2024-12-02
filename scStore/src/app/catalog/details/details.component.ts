@@ -33,16 +33,12 @@ export class DetailsComponent implements OnInit {
       this.userService.user$.subscribe((user)=> {
         if(user) {
           this.isLoggedIn = true;
-          console.log(user.preferDevice)
           if (Array.isArray(user?.preferDevice) &&
             user.preferDevice.some(device => device._id === this.deviceId)) {
-            console.log("YES");
             this.isPurchased = true;
-          } else {
-            console.log("NO");
           }
 
-          // @ts-ignore
+         // @ts-ignore
           if(this.device?.owner === user?._id) {
             console.log(true)
             this.isOwner = true;

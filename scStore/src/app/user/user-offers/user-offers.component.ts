@@ -17,7 +17,6 @@ export class UserOffersComponent implements OnInit{
  hasDevices = false;
   isLoading = true;
 
-
   constructor(private userService: UserService, private router: Router,private deviceService: DeviceService, private route: ActivatedRoute) {
   }
 
