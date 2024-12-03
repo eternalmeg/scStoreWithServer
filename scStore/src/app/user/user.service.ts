@@ -1,5 +1,5 @@
 import {Injectable, OnDestroy} from '@angular/core';
-import {BehaviorSubject, map, Subscription, tap} from "rxjs";
+import {BehaviorSubject, map, Observable, Subscription, tap} from "rxjs";
 import {User} from "../types/user";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
@@ -14,12 +14,6 @@ export class UserService implements OnDestroy{
   user: User | undefined;
   api ='http://localhost:3000'
 
-  get isLoggedIn$() {
-    return this.user$.pipe(
-      tap(user => console.log('Reactive isLoggedIn:', !!user)), // Дебъг
-      map(user => !!user) // Преобразуваме потребителя в булева стойност
-    );
-  }
 
   get isLoggedIn(): boolean {
     return !!this.user;
@@ -47,6 +41,11 @@ export class UserService implements OnDestroy{
         password,
         rePassword
       })
+      .pipe(
+        tap(() => {
+          this.login(email, password).subscribe();
+        })
+      )
   }
 
   login(email: string, password: string) {
@@ -71,6 +70,10 @@ updateProfile(name: string, phone: string) {
     return this.http.put<User>(`${this.api}/auth/profile`, {name, phone})
       .pipe(tap((user) => this.user$$.next(user)));
 }
+
+  getOwnersByIds(ownerIds: User[] | undefined): Observable<User[]>{
+    return this.http.post<User[]>(`${this.api}/auth/get-owners`, {ownerIds})
+  }
 
 
 

@@ -15,6 +15,7 @@ import {CartComponent} from "./features/cart/cart.component";
 import {SearchComponent} from "./catalog/search/search.component";
 import { AuthActivate } from "./core/guards/auth.guard";
 import {guestGuard} from "./core/guards/guest.guard";
+import {SellerInfoComponent} from "./features/seller-info/seller-info.component";
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'catalog', component: CatalogComponent},
   {path: 'device-details/:id', component: DetailsComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'seller-info', component: SellerInfoComponent},
   {path: 'search', component:SearchComponent},
   {path: '404', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent}

@@ -9,6 +9,7 @@
           <div class="buttons" style="display: flex">
             <a class="read_more" (click)="buyHandler()">Buy</a>
             <a class="read_more" routerLink="/catalog">Back</a>
+            <a class="read_more" (click)="infoHandler()">Info</a>
           </div>
 
         </div>
@@ -27,9 +28,11 @@
               <td>Total: </td>
               <td>{{price}} BGN</td>
               <td><button class="clear-btn" (click)="cancelAllHandler()">clear all</button></td>
-
             </tr>
           </table>
+        </div>
+        <div class="laptop_box" *ngIf="!hasDevices">
+          <p>There are no devices in your cart yet</p>
         </div>
       </div>
     </div>

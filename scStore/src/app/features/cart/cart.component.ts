@@ -108,5 +108,22 @@ export class CartComponent implements OnInit{
     })
   }
 
+  infoHandler() {
+    const ownerIds = this.devices?.map(device => device.owner);
+
+    this.userService.getOwnersByIds(ownerIds).subscribe(owners => {
+     const devicesWithOwners = this.devices?.map(device => {
+
+
+
+       const owner = owners.find(o => JSON.stringify(o._id) === JSON.stringify(device.owner) );
+       return {
+         ...device, owner
+       }
+     });
+      this.router.navigate(['/seller-info'], {state: {devicesWithOwners}})
+    })
+  }
+
 
 }

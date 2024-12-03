@@ -54,6 +54,7 @@ exports.cancelMultiPrefer = async (deviceIds, userId) => {
 }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+
 exports.delete = (deviceId) => Device.findByIdAndDelete(deviceId);
 
 exports.edit = (deviceId, deviceData) => Device.findByIdAndUpdate(deviceId, deviceData, {runValidators: true})

@@ -13,7 +13,7 @@ router.post('/register', async (req, res) => {
         res.json(result);
 
     } catch (err) {
-        res.status(401).json({message: "User already exist"})
+        res.status(401).json({message: err.message})
 
     }
 
@@ -31,8 +31,8 @@ router.post('/login', async (req, res) => {
         res.json(result);
 
     } catch (err) {
-        res.status(401).json({message: "err"})
-        console.log("wrong")
+        res.status(401).json({message: err.message})
+
     }
 
 })
@@ -49,7 +49,6 @@ router.get('/profile', isAuth, async (req, res) => {
 
     try {
         let user = await authService.getInfo(id)
-        console.log(user)
         res.json(user)
     } catch (err) {
         res.status(400).json({
@@ -74,6 +73,19 @@ router.put('/profile', isAuth, async (req, res) => {
             message: "err"
         })
     }
+})
+
+router.post('/get-owners', async (req, res) => {
+    const { ownerIds } = req.body
+    try {
+        const owners =await authService.getOwners(ownerIds);
+        console.log(owners)
+        res.status(200).json(owners)
+    } catch (err) {
+        res.status(400).json({message: err.message})
+    }
+
+
 })
 
 

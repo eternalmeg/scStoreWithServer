@@ -2,16 +2,19 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {CartComponent} from './cart/cart.component';
 import {RouterLink} from "@angular/router";
+import { SellerInfoComponent } from './seller-info/seller-info.component';
 
 
 @NgModule({
   declarations: [
-    CartComponent
+    CartComponent,
+    SellerInfoComponent
 
 
   ],
   exports: [
-    CartComponent
+    CartComponent,
+    SellerInfoComponent
   ],
   imports: [
     CommonModule,

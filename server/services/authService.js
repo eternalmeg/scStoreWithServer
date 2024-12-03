@@ -53,6 +53,11 @@ exports.edit =  async (userId, userData) => {
     return {user, token}
 }
 
+exports.getOwners = async (ownerIds) => {
+   return  await User.find({_id: {$in: ownerIds}});
+}
+
+
 async function generateToken(user) {
 
     const payload = {
