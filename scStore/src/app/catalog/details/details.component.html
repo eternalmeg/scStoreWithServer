@@ -1,29 +1,30 @@
-<div class="loading-spinner">Updating...</div>
+
 <ng-container>
   <div class="three_box1">
     <div class="container">
-      <div class="row">
-        <div class="col-md-4">
+
           <div class="box_text_test">
             <figure><img src="{{device?.image}}" alt="#"/></figure>
             <figure><img [src]="'https://logo.clearbit.com/' + (device?.brand?.trim() || '') + '.com'"
                          alt="{{device?.brand}} logo"
                          class="brand-logo"></figure>
             <h3>Brand: {{ device?.brand }} </h3>
-            <p>Model: {{ device?.model }} </p>
-            <p>Description: {{ device?.description }}</p>
-            <p class="price">Price: <span>{{ device?.price }} BGN</span></p>
-            <div class="profile-btn" *ngIf="isLoggedIn && isOwner">
-              <button class="edit-btn" (click)="editHandler()">Edit</button>
-              <button class="edit-btn" routerLink="/my-offers">Cancel</button>
-              <button class="edit-btn" (click)="deleteHandler()">Delete</button>
-            </div>
-            <div class="profile-btn" *ngIf="isLoggedIn && !isOwner">
-              <button class="edit-btn" (click)="buyHandler()" [disabled]="isPurchased">Buy</button>
-              <button class="edit-btn" routerLink="/catalog">Cancel</button>
-            </div>
+
+
 
           </div>
+      <div class="box_text_test1">
+        <p>Model: {{ device?.model }} </p>
+        <p>Description: {{ device?.description }}</p>
+        <p class="price"><span>{{ device?.price }} BGN</span></p>
+        <div class="profile-btn" *ngIf="isLoggedIn && isOwner">
+          <button class="edit-btn" (click)="editHandler()">Edit</button>
+          <button class="edit-btn" routerLink="/my-offers">Cancel</button>
+          <button class="edit-btn" (click)="deleteHandler()">Delete</button>
+        </div>
+        <div class="profile-btn" *ngIf="isLoggedIn && !isOwner">
+          <button class="edit-btn" (click)="buyHandler()" [disabled]="isPurchased">Add</button>
+          <button class="edit-btn" routerLink="/catalog">Cancel</button>
         </div>
       </div>
     </div>

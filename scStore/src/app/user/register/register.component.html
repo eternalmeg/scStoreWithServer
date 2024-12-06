@@ -1,12 +1,13 @@
 <div class="contact">
 
-
+  <span><app-error-message /></span>
 <div class="register">
   <form #form="ngForm" (ngSubmit)="submitHandler(form)">
 
     <div class="header">
       <h3>Register</h3>
-      <app-error-message />
+
+
     </div>
 
     <div class="fields">
@@ -75,7 +76,7 @@
       <div class="button">
         <input type="submit" value="Register" />
       </div>
-      <h5>Already have an account? Login <a routerLink="/login">here</a></h5>
+      <h5>Already have an account? Login <a routerLink="/login"><u>here</u></a></h5>
     </div>
   </form>
 </div>

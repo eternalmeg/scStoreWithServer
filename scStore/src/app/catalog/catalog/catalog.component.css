@@ -11,6 +11,15 @@ button {
   transition: ease-in all 0.5s;
 }
 
+h2 {
+  color: whitesmoke;
+}
+
+button {
+  background-color: #4f4aa6;
+}
+
+
 button:hover {
   background: #48ca95;
   transition: ease-in all 0.5s;
@@ -29,12 +38,9 @@ img {
   height: 300px;
   object-fit: contain;
   overflow: hidden;
-  border: 1px solid green;
+  border: 1px solid #48ca95;
   border-radius: 5px;
 }
 
 
-.read_more:hover {
-  background-color: green;
 
-}

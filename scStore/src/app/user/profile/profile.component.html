@@ -2,11 +2,10 @@
 <ng-container *ngIf="!showEditMode">
 <div class="three_box1">
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
+
         <div class="box_text_test">
           <i><img src="./assets/images/thr.png" alt="#"/></i>
-          <h3>Welcome: {{user?.name}} </h3>
+          <h3>Welcome: <span>{{user?.name}}</span> </h3>
           <p>Your contact info:</p>
           <p>Email: {{user?.email}} </p>
           <p>Phone number: {{user?.phone}}</p>
@@ -15,13 +14,10 @@
             <button class="edit-btn" (click)="onToggle()">Edit</button>
             <button class="edit-btn" routerLink="/my-offers">My offers</button>
             <button class="edit-btn" routerLink="/create-offer">Create offer</button>
-
           </div>
 
       </div>
 
-    </div>
-  </div>
 </div>
 </div>
 </ng-container>

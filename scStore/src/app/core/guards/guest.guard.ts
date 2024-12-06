@@ -1,22 +1,20 @@
-import {CanActivateFn, Router} from '@angular/router';
-import {inject} from "@angular/core";
+import {Injectable} from "@angular/core";
+import {CanActivate, Router} from "@angular/router";
 import {UserService} from "../../user/user.service";
-import {map} from "rxjs";
 
-export const guestGuard: CanActivateFn = (route, state) => {
-  const userService = inject(UserService)
-  const router = inject(Router)
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(private userService: UserService, private router: Router) {}
 
-  return userService.getProfile().pipe(
-    map((user) => {
-      if(user) {
-        console.log(user);
-        router.navigate(['/home'])
-        return false;
-      }
+  canActivate(): boolean {
+    if (this.userService.isLoggedIn) {
+      this.router.navigate(['/']);
+      return false;
+    } else {
+
       return true;
-    })
-  )
-
-
-};
+    }
+  }
+}

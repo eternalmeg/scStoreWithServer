@@ -3,6 +3,7 @@ background-color: transparent;
 }
 .header h3 {
   font-size: 2em;
+  color: whitesmoke;
 }
 .register{
   display: flex;
@@ -39,6 +40,7 @@ background-color: transparent;
   margin-bottom: 0;
 
 }
+
 .register form .fields{
   display: flex;
   flex-direction: column;
@@ -57,14 +59,37 @@ background-color: transparent;
   font-size: 16px;
   font-weight: bolder;
 }
+.register form .fields .field input::placeholder {
+  text-align: center;
+}
+
 .register form .fields .field input{
-  background-color: transparent;
+  text-align: center;
+  background-color:  transparent;
   color: whitesmoke;
   min-width: 15em;
   min-height: 2em;
-  border-bottom: 4px solid whitesmoke;
+  border: none;
+  border-bottom: 1px solid whitesmoke;
+  /* Цветът на текста */
+  transition: background-color 0.3s ease, color 0.3s ease;
 
 }
+
+.register form .fields .field input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  background-color: transparent !important; /* Прозрачен фон */
+  -webkit-text-fill-color: whitesmoke !important; /* Цветът на текста */
+  border-bottom: 1px solid whitesmoke !important; /* Запазване на рамката */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  transition: background-color 5000s ease-in-out 0s;/* Премахване на autofill фон */
+  box-shadow: 0 0 0 1000px transparent inset !important; /* Съвместимост */
+}
+
+
+
 .button {
   text-align: center;
 }
@@ -80,7 +105,7 @@ background-color: transparent;
   font-size: 1.5em;
 }
 .register form .fields .button input:hover{
-  background-color: #21b443;
+  background-color:#34ce57;
   color: white;
   border-color: white;
   cursor: pointer;
@@ -106,5 +131,15 @@ h5 a {
   top: 2.2em;
   left: 0em;
   color: red;
+}
+
+span {
+position: absolute;
+  right: 10%;
+  top: 16%;
+}
+
+.contact {
+  position: relative;
 }
 

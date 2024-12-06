@@ -1,12 +1,13 @@
 
 <div class="contact">
+  <span><app-error-message /></span>
   <div class="register">
 
 
     <form #form="ngForm" (ngSubmit)="submitHandler()">
       <div class="header">
         <h3>Edit your offer here</h3>
-        <app-error-message />
+
       </div>
       <div class="fields">
 
@@ -17,7 +18,7 @@
         <input type="text" id="model" name="model" ngModel #model="ngModel">
       </div>
       <div class="field">
-        <input type="text" id="description" name="description" ngModel #description>
+        <textarea type="text" id="description" name="description" ngModel #description="ngModel"></textarea>
       </div>
       <div class="field">
         <input type="text" id="price" name="price" ngModel #price="ngModel">

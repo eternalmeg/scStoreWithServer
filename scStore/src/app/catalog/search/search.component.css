@@ -1,7 +1,24 @@
 .search-container {
   text-align: center;
-  margin: 20px;
   padding-top: 300px;
+  min-height: 100vh;
+  background: url(/assets/images/banner.jpg);
+
+
+}
+
+h2 {
+  color: whitesmoke;
+}
+h3 {
+  color: whitesmoke;
+}
+h4 {
+  color: whitesmoke;
+}
+
+#price {
+  color: red;
 }
 
 input {
@@ -11,9 +28,7 @@ input {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-li {
-  margin-bottom: 20px;
-}
+
 
 button {
   padding: 10px 15px;
@@ -32,4 +47,8 @@ button:hover {
   max-width: 150px;
   display: block;
   margin: 10px auto;
+}
+
+li {
+  padding: 1em;
 }

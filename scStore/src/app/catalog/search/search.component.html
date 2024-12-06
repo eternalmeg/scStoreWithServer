@@ -16,8 +16,7 @@
     <ul>
       <li *ngFor="let device of devices">
         <h4>{{ device.brand }} {{ device.model }}</h4>
-        <p>{{ device.description }}</p>
-        <p><strong>Price:</strong> {{ device.price }} BGN</p>
+        <p id="price"><strong>Price:</strong> {{ device.price }} BGN</p>
         <img [src]="device.image" alt="{{ device.brand }}" class="device-image" />
         <button [routerLink]="['/', 'device-details', device._id]">View Details</button>
       </li>

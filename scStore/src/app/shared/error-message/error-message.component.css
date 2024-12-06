@@ -1,9 +1,10 @@
 .error-message{
     padding: 0.5em;
-    border: 2px solid #590E09;
-    background-color: black;
+    border: 1px solid whitesmoke;
+    background-color:transparent;
     border-radius: 0.5em;
     width: fit-content;
+  color: #bf4d4d;
 }
 .error-message p{
     margin: 0;

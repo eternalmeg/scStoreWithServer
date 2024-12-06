@@ -3,12 +3,12 @@ const mongoose = require('mongoose');
 const deviceSchema = new mongoose.Schema({
     brand: {
         type: String,
-        minLength: 2,
+        minLength: [2, 'Minimum characters 2'],
         required: true
     },
     model: {
         type: String,
-        minLength: 5,
+        minLength: [5, 'Minimum characters 5'],
         required: true
     },
     image: {
@@ -18,7 +18,7 @@ const deviceSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        minLength: 10,
+        minLength: [10, 'Minimum characters 10'],
         required: true
     },
 

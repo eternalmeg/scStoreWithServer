@@ -14,16 +14,16 @@ import {UserOffersComponent} from "./user/user-offers/user-offers.component";
 import {CartComponent} from "./features/cart/cart.component";
 import {SearchComponent} from "./catalog/search/search.component";
 import { AuthActivate } from "./core/guards/auth.guard";
-import {guestGuard} from "./core/guards/guest.guard";
 import {SellerInfoComponent} from "./features/seller-info/seller-info.component";
+import {AuthGuard} from "./core/guards/guest.guard";
 
 
 
 const routes: Routes = [
   {path: '',redirectTo: '/home', pathMatch: "full"},
   {path: 'home', component: HomeComponent},
-  {path: 'login', component: LoginComponent, canActivate: [guestGuard]},
-  {path: 'register', component: RegisterComponent, canActivate: [guestGuard]},
+  {path: 'login', component: LoginComponent, canActivate: [AuthGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'my-profile', component: ProfileComponent, canActivate: [AuthActivate]},
   {path: 'create-offer', component: OfferComponent, canActivate: [AuthActivate]},
   {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [AuthActivate]},

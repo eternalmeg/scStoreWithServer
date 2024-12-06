@@ -1,23 +1,31 @@
-
 .three_box1 {
-  background-color: whitesmoke;
-  padding-top: 90px;
+  background: url(/assets/images/contact_g.jpg);
+  background-repeat: no-repeat;
+  padding: 143px 0 90px 0;
   display: block;
   justify-content: center;
+  background-size: 100% 100%;
 
+}
+.three_box1 h3 {
+  font-style: italic;
 }
 
 .box_text_test {
   background:whitesmoke;
   text-align: center;
-  padding: 50px 20px 20px 20px;
-  border: #48ca95 solid 1px;
-  border-radius: 15px;
-  margin-bottom: 90px;
-  background-color: white;
-  width:300% ;
-  margin-top: 100px;
+  width:50% ;
+  padding-top: 90px;
 
+
+}
+
+.box_text_test1 {
+  background:whitesmoke;
+  text-align: center;
+  width:50% ;
+  padding-top: 90px;
+  position: relative;
 
 }
 
@@ -29,13 +37,37 @@
   padding-bottom: 25px;
 }
 
-.box_text_test p {
+.container {
+  display: flex;
+  flex-direction: row;
+  border: #48ca95 solid 1px;
+  border-radius: 15px;
+  background-color: whitesmoke;
+
+
+}
+
+ p {
   font-size: 17px;
   color: black;
   line-height: 30px;
 }
 
-
+.box_text_test i {
+  padding-bottom: 25px;
+  margin-bottom: 40px;
+  display: block;
+}
+span {
+  color:  #48ca95;
+  position: absolute;
+  top: 1em;
+  right: 0;
+background-color: yellow;
+  border: 1px solid #48ca95;
+  padding: 15px 10px 15px 10px;
+  border-radius: 30px;
+}
 
 .edit-btn {
   font-size: 22px;
@@ -43,13 +75,13 @@
   background-color: #48ca95;
 
   color: #fff;
-  padding: 15px 0px;
+  padding: 10px 0px;
   max-width:150px;
   width: 100%;
   display: block;
-  margin-top: 30px !important;
-  margin: 0 auto;
-  border-radius: 40px;
+
+  margin: 50px auto;
+  border-radius: 30px;
   font-weight: 500;
 }
 
@@ -62,9 +94,9 @@
 .profile-btn {
   display: flex;
   flex-direction: row;
-}
-
-.computer-reg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
 }
 

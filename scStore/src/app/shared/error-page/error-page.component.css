@@ -3,7 +3,10 @@
   padding-top: 10%;
 }
 
-.page_404{ padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+.page_404{
+  padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+
+  background: url(/assets/images/banner.jpg);
 }
 
 .page_404  img{ width:100%;}
@@ -33,3 +36,8 @@
   display: inline-block;
 border-radius: 30px}
 .contant_box_404{ margin-top:-50px;}
+
+p{
+  color: whitesmoke;
+}
+

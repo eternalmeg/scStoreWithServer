@@ -31,14 +31,21 @@
         </div>
 
         <div class="field">
-
-        <input type="text" id="description" name="description" placeholder="description" ngModel #description="ngModel" required value="">
-        <div class="error" *ngIf="description.touched">
-          <div *ngIf="description.errors?.['required']">
-            Description is required!
+  <textarea
+    id="description"
+    name="description"
+    placeholder="Description"
+    ngModel
+    #description="ngModel"
+    required>
+  </textarea>
+          <div class="error" *ngIf="description.touched">
+            <div *ngIf="description.errors?.['required']">
+              Description is required!
+            </div>
           </div>
         </div>
-        </div>
+
 
         <div class="field">
 
@@ -62,7 +69,8 @@
 
 
       <div class="button">
-        <input type="submit" value="Create Product" />
+        <input type="submit" value="Create" />
+        <input type="submit" routerLink="/my-profile" value="Cancel" />
       </div>
 </div>
     </form>

@@ -7,12 +7,12 @@ import {environment} from "../../environments/environment";
 @Injectable({
   providedIn: 'root'
 })
-export class UserService implements OnDestroy{
-  private user$$ = new BehaviorSubject< User | undefined>(undefined);
+export class UserService implements OnDestroy {
+  private user$$ = new BehaviorSubject<User | undefined>(undefined);
   public user$ = this.user$$.asObservable();
 
   user: User | undefined;
-  api ='http://localhost:3000'
+  api = 'http://localhost:3000'
 
 
   get isLoggedIn(): boolean {
@@ -21,13 +21,18 @@ export class UserService implements OnDestroy{
 
   subscription: Subscription;
 
-  constructor(private http:HttpClient) {
+  constructor(private http: HttpClient) {
+    const storedUser = localStorage.getItem('user')
+    if (storedUser) {
+      this.user = JSON.parse(storedUser);
+      this.user$$.next(this.user);
+    }
     this.subscription = this.user$.subscribe((user) => {
       this.user = user;
     })
   }
 
-  register (
+  register(
     name: string,
     email: string,
     phone: string,
@@ -43,6 +48,7 @@ export class UserService implements OnDestroy{
       })
       .pipe(
         tap(() => {
+
           this.login(email, password).subscribe();
         })
       )
@@ -50,32 +56,35 @@ export class UserService implements OnDestroy{
 
   login(email: string, password: string) {
     return this.http
-      .post<User>(`${this.api}/auth/login`, { email, password })
-      .pipe(tap((user) => {console.log('login response', user); this.user$$.next(user);
+      .post<User>(`${this.api}/auth/login`, {email, password})
+      .pipe(tap((user) => {
+        this.user$$.next(user);
+        localStorage.setItem('user', JSON.stringify(user));
         this.getProfile().subscribe();
-      }) );
+      }));
   }
 
   logout() {
     return this.http.post<User>(`${this.api}/auth/logout`, {})
-      .pipe(tap(()=> this.user$$.next(undefined)))
+      .pipe(tap(() => {
+        this.user$$.next(undefined);
+        localStorage.removeItem('user')
+      }))
   }
 
-getProfile() {
+  getProfile() {
     return this.http.get<User>(`${this.api}/auth/profile`)
       .pipe(tap(user => this.user$$.next(user)))
-}
-
-updateProfile(name: string, phone: string) {
-    return this.http.put<User>(`${this.api}/auth/profile`, {name, phone})
-      .pipe(tap((user) => this.user$$.next(user)));
-}
-
-  getOwnersByIds(ownerIds: User[] | undefined): Observable<User[]>{
-    return this.http.post<User[]>(`${this.api}/auth/get-owners`, {ownerIds})
   }
 
+  updateProfile(name: string, phone: string) {
+    return this.http.put<User>(`${this.api}/auth/profile`, {name, phone})
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
 
+  getOwnersByIds(ownerIds: User[] | undefined): Observable<User[]> {
+    return this.http.post<User[]>(`${this.api}/auth/get-owners`, {ownerIds})
+  }
 
 
   ngOnDestroy(): void {

@@ -8,6 +8,7 @@ table {
 }
 
 table td{
+  font-size: 18px;
   border-bottom: 1px solid whitesmoke;
   width: 30%;
   height: 80px;
@@ -16,6 +17,8 @@ table td{
 
 .laptop {
   padding-top: 300px;
+  min-height: 100vh;
+  background: url(/assets/images/contact_g.jpg);
 }
 
 .total {
@@ -39,4 +42,8 @@ table td{
 }
 .laptop_box p {
   text-align: center;
+}
+p {
+  color: whitesmoke;
+  font-size: 2em;
 }
