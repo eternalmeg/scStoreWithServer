@@ -21,7 +21,6 @@ export class DetailsComponent implements OnInit {
 
   constructor(private deviceService: DeviceService,
               private route: ActivatedRoute,
-
               private userService: UserService,
               private router: Router) {
   }
@@ -30,17 +29,16 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.deviceService.getDevice(this.deviceId).subscribe(device => {
       this.device = device;
-      this.userService.user$.subscribe((user)=> {
-        if(user) {
+      this.userService.user$.subscribe((user) => {
+        if (user) {
           this.isLoggedIn = true;
           if (Array.isArray(user?.preferDevice) &&
             user.preferDevice.some(device => device._id === this.deviceId)) {
             this.isPurchased = true;
           }
 
-         // @ts-ignore
-          if(this.device?.owner === user?._id) {
-            console.log(true)
+
+          if (JSON.stringify(this.device?.owner) === JSON.stringify(user?._id)) {
             this.isOwner = true;
           }
         }
@@ -50,41 +48,40 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteHandler(): void {
-   const confirmation = window.confirm("Are you sure you want to delete this offer?");
-   if(confirmation) {
-     console.log(this.deviceId)
-     this.deviceService.deleteDevice(this.deviceId)
-       .subscribe({
-         next: ()=> {
-           alert("Offer deleted successfully!");
-           this.router.navigate(['/my-offers'])
-           console.log(this.device?.preferredList)
-         },
-         error: (err) => {
-           console.error('Error deleting offer', err);
-           alert('Failed to delete offer. Please try again later.');
-         }
-       })
-   }
+    const confirmation = window.confirm("Are you sure you want to delete this offer?");
+    if (confirmation) {
+      this.deviceService.deleteDevice(this.deviceId)
+        .subscribe({
+          next: () => {
+            alert("Offer deleted successfully!");
+            this.router.navigate(['/my-offers'])
+            console.log(this.device?.preferredList)
+          },
+          error: (err) => {
+            console.error('Error deleting offer', err);
+            alert('Failed to delete offer. Please try again later.');
+          }
+        })
+    }
   }
 
-  editHandler():void {
-    this.router.navigate([`/edit-offer/${this.deviceId}`], { state: { isOwner: this.isOwner } });
+  editHandler(): void {
+    this.router.navigate([`/edit-offer/${this.deviceId}`], {state: {isOwner: this.isOwner}});
   }
 
   buyHandler(): void {
-    const confirmation = window.confirm("Are you sure you want to buy this device?");
+    const confirmation = window.confirm("Are you sure you want to add this device?");
     if (confirmation) {
       this.deviceService.buyDevice(this.deviceId)
         .subscribe({
           next: () => {
-            alert("Device successfully added to your cart!");
+            alert("Device successfully added to your wish list!");
             this.isPurchased = true;
             this.router.navigate(['/cart']);
           },
           error: (err) => {
             console.error('Error purchasing device', err);
-            alert('Failed to purchase device. Please try again later.');
+            alert('Failed to add device. Please try again later.');
           }
         });
     }

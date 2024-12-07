@@ -41,7 +41,7 @@ export class CartComponent implements OnInit{
 
   buyHandler(): void {
     if (!this.devices || this.devices.length === 0) {
-      alert("No devices to buy!");
+      alert("No devices to add!");
       return;
     }
 
@@ -56,13 +56,13 @@ export class CartComponent implements OnInit{
       },
       error: (err) => {
         console.error('Error deleting devices', err);
-        alert('Failed to complete the purchase. Please try again later.');
+        alert('Something went wrong. Please try again later.');
       }
     });
   }
 
   cancelHandler(deviceId:string) {
-    if (!confirm("Are you sure you want to cancel this purchase?")) {
+    if (!confirm("Are you sure you want to cancel this item?")) {
       return;
     }
     this.deviceService.cancelPrefer(deviceId).subscribe({
@@ -78,7 +78,7 @@ export class CartComponent implements OnInit{
         }
       },
       error: (err) => {
-        alert('Failed to cancel the purchase. Please try again.')
+        alert('Something went wrong. Please try again.')
       }
     })
   }
@@ -88,7 +88,7 @@ export class CartComponent implements OnInit{
       alert("No devices to cancel");
       return;
     }
-    if(!confirm("Are you sure you want to cancel your order")) {
+    if(!confirm("Are you sure you want to cancel your devices")) {
       return;
     }
 

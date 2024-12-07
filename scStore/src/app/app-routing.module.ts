@@ -16,6 +16,7 @@ import {SearchComponent} from "./catalog/search/search.component";
 import { AuthActivate } from "./core/guards/auth.guard";
 import {SellerInfoComponent} from "./features/seller-info/seller-info.component";
 import {AuthGuard} from "./core/guards/guest.guard";
+import {EditDeviceGuard} from "./core/guards/owner.guard";
 
 
 
@@ -26,7 +27,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent, canActivate: [AuthGuard]},
   {path: 'my-profile', component: ProfileComponent, canActivate: [AuthActivate]},
   {path: 'create-offer', component: OfferComponent, canActivate: [AuthActivate]},
-  {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [AuthActivate]},
+  {path: 'edit-offer/:id', component: EditOfferComponent, canActivate: [EditDeviceGuard]},
   {path: 'my-offers', component: UserOffersComponent, canActivate: [AuthActivate]},
   {path: 'catalog', component: CatalogComponent},
   {path: 'device-details/:id', component: DetailsComponent},
