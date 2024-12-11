@@ -57,7 +57,7 @@ background-color: transparent;
 }
 .register form .fields .field {
   font-size: 16px;
-  font-weight: bolder;
+
 }
 .register form .fields .field input::placeholder {
   text-align: center;

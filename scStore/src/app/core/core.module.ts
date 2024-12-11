@@ -14,7 +14,8 @@ import { AboutMeComponent } from './about-me/about-me.component';
     ],
   exports: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutMeComponent
   ],
     imports: [
         CommonModule,

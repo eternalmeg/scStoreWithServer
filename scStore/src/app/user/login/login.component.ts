@@ -1,20 +1,26 @@
 import { Component } from '@angular/core';
-import {UserService} from "../user.service";
-import {Router} from "@angular/router";
-import {NgForm} from "@angular/forms";
-
+import { UserService } from '../user.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+  returnUrl: string = '/home';
 
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {
 
-
-  constructor(private userService: UserService, private router: Router) {}
-
+    this.route.queryParams.subscribe((params) => {
+      this.returnUrl = params['returnUrl'] || '/home';
+    });
+  }
 
   submitHandler(form: NgForm): void {
     if (form.invalid) {
@@ -22,11 +28,9 @@ export class LoginComponent {
     }
     const { email, password } = form.value;
 
-
     this.userService.login(email, password).subscribe(() => {
 
-      this.router.navigate(['/home']);
+      this.router.navigateByUrl(this.returnUrl);
     });
-
-    }
+  }
 }

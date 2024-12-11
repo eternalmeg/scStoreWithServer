@@ -17,6 +17,7 @@ import { AuthActivate } from "./core/guards/auth.guard";
 import {SellerInfoComponent} from "./features/seller-info/seller-info.component";
 import {AuthGuard} from "./core/guards/guest.guard";
 import {EditDeviceGuard} from "./core/guards/owner.guard";
+import {AboutMeComponent} from "./core/about-me/about-me.component";
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'seller-info', component: SellerInfoComponent},
   {path: 'search', component:SearchComponent},
+  {path: 'about-me', component: AboutMeComponent},
   {path: '404', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent}
 ];

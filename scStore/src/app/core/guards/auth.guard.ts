@@ -21,7 +21,7 @@ export class AuthActivate implements CanActivate {
       return true;
     } else {
       return this.router.createUrlTree(['/login'], {
-        queryParams: { returnUrl: state.url }, // Добавяне на параметър за връщане
+        queryParams: { returnUrl: state.url },
       });
     }
   }
