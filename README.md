@@ -20,12 +20,12 @@ Running the Project:
 1. Start Frontend:
 Navigate to the ScStore folder.
 Start the server with the following commands:
-npm install
+npm install then
 ng serve
 3. Start Backend:
 Navigate to the Server folder.
 Start the server with the following commands:
-npm instal
+npm instal then
 npm start
 The server will run on port 3000.
 The database will be connected to localhost:27017, with the name scStore.
