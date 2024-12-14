@@ -1,10 +1,9 @@
 .three_box1 {
-  background: url(/assets/images/contact_g.jpg);
-  background-repeat: no-repeat;
-  padding: 143px 0 90px 0;
+
+  padding: 95px 0 70px 0;
   display: block;
   justify-content: center;
-  background-size: 100% 100%;
+  background-color: transparent;
 
 }
 .three_box1 h3 {
@@ -12,25 +11,71 @@
 }
 
 .box_text_test {
-  background:whitesmoke;
+  background:transparent;
   text-align: center;
   width:50% ;
   padding-top: 90px;
 
 
 }
-
 .box_text_test1 {
-  background:whitesmoke;
-  text-align: center;
-  width:50% ;
-  padding-top: 90px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  width: 50%;
+  min-height: 400px;
+  align-items: stretch;
+}
+
+.info-cell {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 40px;
+}
+
+.info-cell.model a,
+.info-cell.price a {
+  color: #48ca95;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.info-cell.price a {
+  font-size: 25px;
+  color: red;
+}
+
+.info-cell.description {
+  flex-wrap: wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+#description {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 10px;
 
 }
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: auto;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .box_text_test h3 {
-  color: black;
+  color: whitesmoke;
   font-size: 20px;
   line-height: 22px;
   font-weight: bold;
@@ -42,40 +87,23 @@
   flex-direction: row;
   border: #48ca95 solid 1px;
   border-radius: 15px;
-  background-color: whitesmoke;
+  background-color: transparent;
 
 
 }
 
- p {
-  font-size: 17px;
-  color: black;
+p {
+  font-size: 20px;
   line-height: 30px;
+  color: whitesmoke;
 }
 
-.box_text_test i {
-  padding-bottom: 25px;
-  margin-bottom: 40px;
-  display: block;
-}
-span {
-  color:  #48ca95;
-  position: absolute;
-  top: 1em;
-  right: 0;
-background-color: yellow;
-  border: 1px solid #48ca95;
-  padding: 15px 10px 15px 10px;
-  border-radius: 30px;
-}
 
 .edit-btn {
   font-size: 22px;
   transition: ease-in all 0.5s;
   background-color: #48ca95;
-
   color: #fff;
-  padding: 10px 0px;
   max-width:150px;
   width: 100%;
   display: block;
@@ -94,18 +122,36 @@ background-color: yellow;
 .profile-btn {
   display: flex;
   flex-direction: row;
-  position: absolute;
-  bottom: 0;
+  margin-top: auto;
   width: 100%;
 
 }
 
-.price {
+.info-cell.model a {
+  color: #48ca95;
   font-weight: bold;
 }
-.price span {
+.info-cell.price a {
   color: red;
-  font-size: 1.9em;
+  font-size: 25px;
 }
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  padding: 0;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.read-more-btn:hover {
+  color: #2a835b;
+}
+
+
 
 

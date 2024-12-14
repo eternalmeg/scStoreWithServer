@@ -2,11 +2,14 @@ import {Component} from '@angular/core';
 import {UserService} from "../user.service";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {fieldAnimation} from "../../shared/animation";
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  animations: [fieldAnimation],
+
 })
 export class RegisterComponent {
   emailValidatorPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";

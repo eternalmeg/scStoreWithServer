@@ -1,12 +1,24 @@
-.error-message{
-    padding: 0.5em;
-    border: 1px solid whitesmoke;
-    background-color:transparent;
-    border-radius: 0.5em;
-    width: fit-content;
-  color: #bf4d4d;
+.error-message {
+  background-color: #ffe6e6; /* Светло червено за фонов цвят */
+  color: #d8000c; /* Тъмен червен цвят за текста */
+  border: 1px solid #d8000c; /* Червена граница */
+  border-radius: 4px; /* Заоблени ръбове */
+  padding: 10px 15px; /* Отстояние вътре в полето */
+  margin: 15px 0; /* Разстояние отгоре и отдолу */
+  font-size: 14px; /* Умерен размер на текста */
+  font-weight: bold; /* Подчертаване на текста */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Лека сянка */
+  display: flex;
+  align-items: center; /* Центриране на съдържанието вертикално */
+  gap: 10px; /* Разстояние между иконата и текста */
 }
-.error-message p{
-    margin: 0;
-    font-size: 1em;
+
+.error-message p {
+  margin: 0; /* Премахване на вътрешните разстояния на параграфа */
 }
+
+.error-message::before {
+  content: '⚠️'; /* Символ за внимание */
+  font-size: 16px; /* Размер на иконата */
+}
+

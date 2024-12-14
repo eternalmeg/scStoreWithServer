@@ -4,30 +4,30 @@
   <div class="register">
     <form #form="ngForm" (ngSubmit)="submitHandler(form)">
 
-      <div class="header">
+      <div class="form-header">
         <h3>Create your offer here</h3>
         <app-error-message />
       </div>
 
       <div class="fields">
         <div class="field">
-        <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel"  required value="">
-        <div class="error" *ngIf="brand.touched">
-          <div *ngIf="brand.errors?.['required']">
-            Brand is required!
+          <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel"  required value=""  [@fieldAnimation]="brand.touched && brand.invalid ? 'invalid' : 'valid'">
+          <div class="error" *ngIf="brand.touched">
+            <div *ngIf="brand.errors?.['required']">
+              Brand is required!
+            </div>
           </div>
-        </div>
         </div>
 
 
         <div class="field">
 
-        <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required value="">
-        <div class="error" *ngIf="model.touched">
-          <div *ngIf="model.errors?.['required']">
-            Model is required!
+          <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required value=""  [@fieldAnimation]="model.touched && model.invalid ? 'invalid' : 'valid'">
+          <div class="error" *ngIf="model.touched">
+            <div *ngIf="model.errors?.['required']">
+              Model is required!
+            </div>
           </div>
-        </div>
         </div>
 
         <div class="field">
@@ -37,7 +37,8 @@
     placeholder="Description"
     ngModel
     #description="ngModel"
-    required>
+    required
+    [@fieldAnimation]="description.touched && description.invalid ? 'invalid' : 'valid'">
   </textarea>
           <div class="error" *ngIf="description.touched">
             <div *ngIf="description.errors?.['required']">
@@ -49,30 +50,30 @@
 
         <div class="field">
 
-        <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required value="">
-        <div class="error" *ngIf="price.touched">
-          <div *ngIf="price.errors?.['required']">
-            Price is required!
+          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
+          <div class="error" *ngIf="price.touched">
+            <div *ngIf="price.errors?.['required']">
+              Price is required!
+            </div>
           </div>
-        </div>
         </div>
 
         <div class="field">
 
-        <input type="text" id="image" name="image" placeholder="image URL" ngModel #image="ngModel" required value="">
-        <div class="error" *ngIf="image.touched">
-          <div *ngIf="image.errors?.['required']">
-            Image is required!
+          <input type="text" id="image" name="image" placeholder="image URL" ngModel #image="ngModel" required value=""  [@fieldAnimation]="image.touched && image.invalid ? 'invalid' : 'valid'">
+          <div class="error" *ngIf="image.touched">
+            <div *ngIf="image.errors?.['required']">
+              Image is required!
+            </div>
           </div>
         </div>
+
+
+        <div class="button">
+          <input type="submit" value="Create" />
+          <input type="submit" routerLink="/my-profile" value="Cancel" />
         </div>
-
-
-      <div class="button">
-        <input type="submit" value="Create" />
-        <input type="submit" routerLink="/my-profile" value="Cancel" />
       </div>
-</div>
     </form>
   </div>
 </div>

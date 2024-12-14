@@ -1,35 +1,50 @@
-
 <ng-container>
   <div class="three_box1">
     <div class="container">
+      <div class="box_text_test">
+        <figure><img src="{{device?.image}}" alt="#"/></figure>
+        <figure><img [src]="'https://logo.clearbit.com/' + (device?.brand?.trim() || '') + '.com'"
+                     alt="{{device?.brand}} logo"
+                     class="brand-logo"></figure>
+        <h3>Brand: {{ device?.brand }} </h3>
+      </div>
 
-          <div class="box_text_test">
-            <figure><img src="{{device?.image}}" alt="#"/></figure>
-            <figure><img [src]="'https://logo.clearbit.com/' + (device?.brand?.trim() || '') + '.com'"
-                         alt="{{device?.brand}} logo"
-                         class="brand-logo"></figure>
-            <h3>Brand: {{ device?.brand }} </h3>
-
-
-
-          </div>
       <div class="box_text_test1">
-        <p>Model: {{ device?.model }} </p>
-        <p>Description: {{ device?.description }}</p>
-        <p class="price"><span>{{ device?.price }} BGN</span></p>
-        <div class="profile-btn" *ngIf="isLoggedIn && isOwner">
-          <button class="edit-btn" (click)="editHandler()">Edit</button>
-          <button class="edit-btn" routerLink="/my-offers">Cancel</button>
-          <button class="edit-btn" (click)="deleteHandler()">Delete</button>
+
+        <div class="info-cell model">
+          <p>Model: <a>{{ device?.model }}</a> </p>
         </div>
-        <div class="profile-btn" *ngIf="isLoggedIn && !isOwner">
-          <button class="edit-btn" (click)="buyHandler()" [disabled]="isPurchased">Add</button>
-          <button class="edit-btn" routerLink="/catalog">Cancel</button>
+        <div class="info-cell price">
+          <p class="price">Price: <a>{{ device?.price }} </a> BGN</p>
+        </div>
+        <div class="info-cell description">
+          <p class="description">Description:</p>
+        </div>
+        <div class="info-cell description">
+          <div id="description">
+            <p *ngIf="!isExpanded">{{ truncatedDescription }}</p>
+            <p *ngIf="isExpanded">{{device?.description}}</p>
+            <button class="read-more-btn" (click)="toggleDescription()">
+              {{ isExpanded ? 'Read Less' : 'Read More' }}
+            </button>
+          </div>
+
+        </div>
+
+
+        <!-- Контейнер за бутоните -->
+        <div class="button-container">
+          <div class="profile-btn" *ngIf="isLoggedIn && isOwner">
+            <button class="edit-btn" (click)="editHandler()">Edit</button>
+            <button class="edit-btn" routerLink="/my-offers">Cancel</button>
+            <button class="edit-btn" (click)="deleteHandler()">Delete</button>
+          </div>
+          <div class="profile-btn" *ngIf="isLoggedIn && !isOwner">
+            <button class="edit-btn" (click)="buyHandler()" [disabled]="isPurchased">Add</button>
+            <button class="edit-btn" routerLink="/catalog">Cancel</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </ng-container>
-
-
-

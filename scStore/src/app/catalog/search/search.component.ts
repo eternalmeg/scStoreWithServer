@@ -18,7 +18,6 @@ export class SearchComponent {
       this.deviceService.searchDevice(this.searchQuery).subscribe({
         next: (results) => {
           this.devices = results;
-          this.searchQuery = '';
         },
         error: (err) => {
           console.error('Error fetching search results', err);

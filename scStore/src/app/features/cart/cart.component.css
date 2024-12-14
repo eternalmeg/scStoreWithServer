@@ -18,7 +18,7 @@ table td{
 .laptop {
   padding-top: 300px;
   min-height: 100vh;
-  background: url(/assets/images/contact_g.jpg);
+
 }
 
 .total {
@@ -31,7 +31,7 @@ table td{
 }
 
 .read_more {
-  border-radius: 30px;
+  border-radius: 10px;
 }
 .clear-btn {
   width: 50%;

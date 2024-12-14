@@ -4,11 +4,13 @@ import {Router} from "@angular/router";
 import {User} from "../../types/user";
 import {Device} from "../../types/device";
 import {NgForm} from "@angular/forms";
+import {fieldAnimation} from "../../shared/animation";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  animations: [fieldAnimation]
 })
 export class ProfileComponent implements OnInit{
 
@@ -21,18 +23,18 @@ export class ProfileComponent implements OnInit{
 
 
 
-constructor(private userService: UserService, private router: Router) {
-}
+  constructor(private userService: UserService, private router: Router) {
+  }
 
-get name(): string {
-  return this.userService.user?.name || '';
-}
+  get name(): string {
+    return this.userService.user?.name || '';
+  }
 
   ngOnInit(): void {
-  this.userService.getProfile().subscribe((user) => {
-    this.user = user;
-    this.devices = user.createdDevice;
-  })
+    this.userService.getProfile().subscribe((user) => {
+      this.user = user;
+      this.devices = user.createdDevice;
+    })
   }
 
 
@@ -53,7 +55,7 @@ get name(): string {
     }
 
     this.isUpdating = true; // Показваме индикатора
-   const {name, phone } = this.form?.value
+    const {name, phone } = this.form?.value
     this.userService.updateProfile(name, phone).subscribe(() => {
       this.userService.getProfile().subscribe((user) => {
         this.user = user;

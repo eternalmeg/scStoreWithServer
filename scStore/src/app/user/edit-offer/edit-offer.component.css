@@ -1,153 +1,16 @@
-.header {
-  background-color: transparent;
-}
-.header h3 {
-  font-size: 2em;
-  color: whitesmoke;
-}
-.register{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding-top: 100px;
-
-}
-.register form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 50em;
-  border: 1px solid;
-
-  color: whitesmoke;
-  min-height: 20em;
-  border-radius: 1em;
-  padding: 1em 0;
-}
-.register form .header{
-  position: relative;
-  text-align: center;
-
-}
-.register form app-error-message{
-  position: absolute;
-}
-.register form h3{
-  font-size: 2em;
-  text-transform: uppercase;
-  margin-bottom: 0;
-
-}
-
-.register form .fields{
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
-}
-.register form .fields .field{
-  background-color: transparent;
-  display: flex;
-  gap: 2em;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-
-}
-.register form .fields .field {
-  font-size: 16px;
-  font-weight: bolder;
-}
-.register form .fields .field input::placeholder {
-  text-align: center;
-}
-
-.register form .fields .field input{
-  text-align: center;
-  background-color:  transparent;
-  color: whitesmoke;
-  min-width: 15em;
-  min-height: 2em;
-  border: none;
-  border-bottom: 1px solid whitesmoke;
-  /* Цветът на текста */
-  transition: background-color 0.3s ease, color 0.3s ease;
-
-}
-
-.register form .fields .field input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active{
-  background-color: transparent !important; /* Прозрачен фон */
-  -webkit-text-fill-color: whitesmoke !important; /* Цветът на текста */
-  border-bottom: 1px solid whitesmoke !important; /* Запазване на рамката */
-  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-  transition: background-color 5000s ease-in-out 0s;/* Премахване на autofill фон */
-  box-shadow: 0 0 0 1000px transparent inset !important; /* Съвместимост */
-}
-
-
-
-.button {
-  text-align: center;
-}
-.button input {
-  border-radius: 30px;
-}
-
-.register form .fields .button input{
-  background-color: transparent;
-  color: whitesmoke;
-  border: 2px solid whitesmoke;
-  padding: 0.5em 1em;
-  font-size: 1.5em;
-}
-.register form .fields .button input:hover{
-  background-color:#34ce57;
-  color: white;
-  border-color: white;
-  cursor: pointer;
-}
-
-h5 {
-  font-style: italic;
-  font-size: 1em;
-  font-weight: normal;
-}
-h5 a {
-  color: #34ce57;
-  font-size: 1em;
-}
-
-.error{
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  font-style: italic;
+#description {
+  overflow: auto;
+  resize: vertical;
   width: 100%;
+  background: transparent;
+  color: whitesmoke;
   text-align: center;
-  top: 2.2em;
-  left: 0em;
-  color: red;
+  border: 1px solid whitesmoke;
 }
 
-
-  textarea {
-    overflow: auto;
-    resize: vertical;
-    width: 100%;
-    background: transparent;
-    color: whitesmoke;
-    text-align: center;
-  }
-
-span {
-  position: absolute;
-  right: 10%;
-  top: 16%;
+textarea::placeholder,
+input::placeholder {
+  color:  #48ca95;
+  font-style: italic;
+  opacity: 1;
 }
-
-.contact {position: relative;
-padding-bottom: 97px}

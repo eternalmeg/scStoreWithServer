@@ -1,83 +1,83 @@
 <div class="contact">
 
   <span><app-error-message /></span>
-<div class="register">
-  <form #form="ngForm" (ngSubmit)="submitHandler(form)">
+  <div class="register">
+    <form #form="ngForm" (ngSubmit)="submitHandler(form)">
 
-    <div class="header">
-      <h3>Register</h3>
+      <div class="form-header">
+        <h3>Register</h3>
 
 
-    </div>
-
-    <div class="fields">
-      <div class="field">
-        <input type="text" placeholder="name" name="name" ngModel #name="ngModel" required minlength="5" />
-        <div class="error" *ngIf="name.touched">
-          <div *ngIf="name.errors?.['required']">
-            Name is required!
-          </div>
-          <div *ngIf="name.errors?.['minlength'] ">
-            Name must be more then 5 characters!
-          </div>
-        </div>
       </div>
 
-      <div class="field">
-        <input type="text" name="email" placeholder="email" ngModel #email="ngModel" required pattern="{{emailValidatorPattern}}" />
-        <div class="error" *ngIf="email.touched">
-          <div *ngIf="email.errors?.['required']">
-            Email is required!
-          </div>
-          <div *ngIf="email.errors?.['pattern']">
-            Invalid email!
-          </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <input type="text" name="phone" placeholder="Phone number" ngModel #phone="ngModel" required min="1" max="105"/>
-        <div class="error" *ngIf="phone.touched">
-          <div *ngIf="phone.errors?.['required']">
-            Phone number is required!
-          </div>
-          <div *ngIf="phone.errors?.['min'] || phone.errors?.['max']">
-            Phone number must be between 1 and 105!
-          </div>
-        </div>
-      </div>
-
-      <ng-container ngModelGroup="passwords" #passwords="ngModelGroup" appAppMatchPasswords   >
+      <div class="fields">
         <div class="field">
-          <input type="password" name="password" placeholder="Password" ngModel #password="ngModel"  required minlength="5" />
-          <div class="error" *ngIf="password.touched">
-            <div *ngIf="password.errors?.['required']">
-              Password is required!
+          <input type="text" placeholder="name" name="name" ngModel #name="ngModel" required minlength="5"  [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'"/>
+          <div class="error" *ngIf="name.touched">
+            <div *ngIf="name.errors?.['required']">
+              Name is required!
             </div>
-            <div *ngIf="password.errors?.['minlength'] ">
-              Password must be more then 5 characters!
+            <div *ngIf="name.errors?.['minlength'] ">
+              Name must be more then 5 characters!
             </div>
           </div>
         </div>
 
         <div class="field">
-          <input type="password" name="repeatPassword" placeholder="Repeat Password" ngModel #repeatPassword="ngModel"  required    />
-          <div class="error" *ngIf="repeatPassword.touched">
-            <div *ngIf="repeatPassword.errors?.['required']">
-              Repeat password is required!
+          <input type="text" name="email" placeholder="email" ngModel #email="ngModel" required pattern="{{emailValidatorPattern}}"  [@fieldAnimation]="email.touched && email.invalid ? 'invalid' : 'valid'" />
+          <div class="error" *ngIf="email.touched">
+            <div *ngIf="email.errors?.['required']">
+              Email is required!
             </div>
-            <div *ngIf="passwords.errors?.['passwordCheck'] && (repeatPassword.dirty || repeatPassword.touched)">
-              Passwords don't match!
+            <div *ngIf="email.errors?.['pattern']">
+              Invalid email!
             </div>
           </div>
         </div>
-      </ng-container>
 
-      <div class="button">
-        <input type="submit" value="Register" />
+        <div class="field">
+          <input type="text" name="phone" placeholder="Phone number" ngModel #phone="ngModel" required min="1" max="105"  [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
+          <div class="error" *ngIf="phone.touched">
+            <div *ngIf="phone.errors?.['required']">
+              Phone number is required!
+            </div>
+            <div *ngIf="phone.errors?.['min'] || phone.errors?.['max']">
+              Phone number must be between 1 and 105!
+            </div>
+          </div>
+        </div>
+
+        <ng-container ngModelGroup="passwords" #passwords="ngModelGroup" appAppMatchPasswords   >
+          <div class="field">
+            <input type="password" name="password" placeholder="Password" ngModel #password="ngModel"  required minlength="5"  [@fieldAnimation]="password.touched && password.invalid ? 'invalid' : 'valid'" />
+            <div class="error" *ngIf="password.touched">
+              <div *ngIf="password.errors?.['required']">
+                Password is required!
+              </div>
+              <div *ngIf="password.errors?.['minlength'] ">
+                Password must be more then 5 characters!
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <input type="password" name="repeatPassword" placeholder="Repeat Password" ngModel #repeatPassword="ngModel" required  [@fieldAnimation]="repeatPassword.touched && repeatPassword.invalid ? 'invalid' : 'valid'"/>
+            <div class="error" *ngIf="repeatPassword.touched">
+              <div *ngIf="repeatPassword.errors?.['required']">
+                Repeat password is required!
+              </div>
+              <div *ngIf="passwords.errors?.['passwordCheck'] && (repeatPassword.dirty || repeatPassword.touched)">
+                Passwords don't match!
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="button">
+          <input type="submit" value="Register" />
+        </div>
+        <h5>Already have an account? Login <a routerLink="/login"><u>here</u></a></h5>
       </div>
-      <h5>Already have an account? Login <a routerLink="/login"><u>here</u></a></h5>
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
 </div>

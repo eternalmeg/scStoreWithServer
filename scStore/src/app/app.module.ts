@@ -12,6 +12,7 @@ import {SharedModule} from "./shared/shared.module";
 import {appInterceptorProvider} from "./app.interseptor";
 import {AuthenticateComponent} from './authenticate/authenticate.component';
 import {FeaturesModule} from "./features/features.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import {FeaturesModule} from "./features/features.module";
     HttpClientModule,
     CatalogModule,
     SharedModule,
-    FeaturesModule
+    FeaturesModule,
+    BrowserAnimationsModule
 
   ],
   providers: [appInterceptorProvider],

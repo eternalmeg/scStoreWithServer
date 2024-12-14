@@ -3,11 +3,13 @@ import {Device} from "../../types/device";
 import {DeviceService} from "../../catalog/device.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
+import {fieldAnimation} from "../../shared/animation";
 
 @Component({
   selector: 'app-edit-offer',
   templateUrl: './edit-offer.component.html',
-  styleUrls: ['./edit-offer.component.css']
+  styleUrls: ['./edit-offer.component.css'],
+  animations: [fieldAnimation],
 })
 export class EditOfferComponent implements OnInit{
 

@@ -27,6 +27,7 @@ button:hover {
 .empty {
   text-align: center;
   width: 100%;
+
 }
 .no-products {
   color: red;
@@ -40,6 +41,15 @@ img {
   overflow: hidden;
   border: 1px solid #48ca95;
   border-radius: 5px;
+}
+
+.no-products{
+  font-size: 50px;
+  text-align: center;
+  font-style: italic;
+  background-color: transparent;
+
+
 }
 
 

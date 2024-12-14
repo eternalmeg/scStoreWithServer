@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import {fieldAnimation} from "../../shared/animation";
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
+  animations: [fieldAnimation],
 })
 export class LoginComponent {
   returnUrl: string = '/home';

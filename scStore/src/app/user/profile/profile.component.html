@@ -1,25 +1,25 @@
 <div *ngIf="isUpdating" class="loading-spinner">Updating...</div>
 <ng-container *ngIf="!showEditMode">
-<div class="three_box1">
-  <div class="container">
+  <div class="three_box">
+    <div class="container">
 
-        <div class="box_text_test">
-          <i><img src="./assets/images/thr.png" alt="#"/></i>
-          <h3>Welcome: <span>{{user?.name}}</span> </h3>
-          <p>Your contact info:</p>
-          <p>Email: {{user?.email}} </p>
-          <p>Phone number: {{user?.phone}}</p>
-          <div class="profile-btn">
+      <div class="box_text">
+        <i><img src="./assets/images/thr.png" alt="#"/></i>
+        <h3>Welcome: <a>{{user?.name}}</a> </h3>
+        <p>Your contact info:</p>
+        <p>Email: <a>{{user?.email}}</a> </p>
+        <p>Phone number: <a>{{user?.phone}}</a></p>
+        <div class="profile-btn">
 
-            <button class="edit-btn" (click)="onToggle()">Edit</button>
-            <button class="edit-btn" routerLink="/my-offers">My offers</button>
-            <button class="edit-btn" routerLink="/create-offer">Create offer</button>
-          </div>
+          <button class="edit-btn" (click)="onToggle()">Edit</button>
+          <button class="edit-btn" routerLink="/my-offers">My offers</button>
+          <button class="edit-btn" routerLink="/create-offer">Create offer</button>
+        </div>
 
       </div>
 
-</div>
-</div>
+    </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="showEditMode">
@@ -27,15 +27,14 @@
     <div class="register">
       <form #form="ngForm" (ngSubmit)="submitHandler()">
 
-        <div class="header">
+        <div class="form-header">
           <h3>Profile Info</h3>
           <app-error-message />
         </div>
 
         <div class="fields">
           <div class="field">
-
-            <input type="text" name="name"  ngModel #name="ngModel" required minlength="5" />
+            <input type="text" name="name"  ngModel #name="ngModel" required minlength="5" [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'" />
             <div class="error" *ngIf="name.touched">
               <div *ngIf="name.errors?.['required']">
                 Name is required!
@@ -48,7 +47,7 @@
 
           <div class="field">
 
-            <input type="text" name="phone"   ngModel #phone="ngModel" required min="1" max="105"/>
+            <input type="text" name="phone"   ngModel #phone="ngModel" required min="1" max="15" [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
             <div class="error" *ngIf="phone.touched">
               <div *ngIf="phone.errors?.['required']">
                 Phone number is required!

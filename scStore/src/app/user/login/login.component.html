@@ -1,35 +1,53 @@
 <div class="contact">
   <span><app-error-message /></span>
-<div class="register">
-  <form #form="ngForm" (ngSubmit)="submitHandler(form)">
-    <div class="header">
-      <h3>Login</h3>
-    </div>
-    <div class="fields">
-      <div class="field">
+  <div class="register">
+    <form #form="ngForm" (ngSubmit)="submitHandler(form)">
+      <div class="form-header">
+        <h3>Login</h3>
+      </div>
+      <div class="fields">
 
-        <input type="text" name="email" placeholder="email" ngModel   #email="ngModel" required />
-        <div class="error" *ngIf="email.touched">
-          <div *ngIf="email.errors?.['required']">
-            Email is required!
+        <div class="field">
+          <input
+            type="text"
+            name="email"
+            placeholder="email"
+            ngModel
+            #email="ngModel"
+            required
+            [@fieldAnimation]="email.touched && email.invalid ? 'invalid' : 'valid'"
+          />
+          <div class="error" *ngIf="email.touched">
+            <div *ngIf="email.errors?.['required']">
+              Email is required!
+            </div>
           </div>
         </div>
-      </div>
-      <div class="field">
 
-        <input type="password" name="password" placeholder="password" ngModel #password="ngModel" required />
-        <div class="error" *ngIf="password.touched">
-          <div *ngIf="password.errors?.['required']">
-            Password is required!
+        <!-- Password Field -->
+        <div class="field">
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            ngModel
+            #password="ngModel"
+            required
+            [@fieldAnimation]="password.touched && password.invalid ? 'invalid' : 'valid'"
+          />
+          <div class="error" *ngIf="password.touched">
+            <div *ngIf="password.errors?.['required']">
+              Password is required!
+            </div>
           </div>
         </div>
-      </div>
-      <div class="button">
-        <input type="submit" value="Login" />
-      </div>
-      <h5>Don't have an account? Register <a routerLink="/register">here</a></h5>
-    </div>
-  </form>
-</div>
 
+        <!-- Submit Button -->
+        <div class="button">
+          <input type="submit" value="Login" />
+        </div>
+        <h5>Don't have an account? Register <a routerLink="/register">here</a></h5>
+      </div>
+    </form>
+  </div>
 </div>
