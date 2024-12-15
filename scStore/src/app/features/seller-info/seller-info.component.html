@@ -14,7 +14,11 @@
           <td>{{ item.model }}</td>
           <td>{{ item.owner.name }}</td>
           <td>{{ item.owner.phone }}</td>
-          <td>{{ item.owner.email }}</td>
+          <td>
+            <a href="mailto:{{ item.owner.email }}?subject=Hello&body=This%20is%20a%20message">
+              {{ item.owner.email }}
+            </a>
+          </td>
         </tr>
       </table>
     </div>

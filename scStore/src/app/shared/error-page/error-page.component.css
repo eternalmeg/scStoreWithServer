@@ -4,16 +4,16 @@
 }
 
 .page_404{
-  padding:40px 0; background:#fff; font-family: 'Arvo', serif;
+  padding:40px 0;  font-family: 'Arvo', serif;
 
-  background: url(/assets/images/banner.jpg);
+  background: transparent;
 }
 
 .page_404  img{ width:100%;}
 
 .four_zero_four_bg{
 
-  background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+  background-image: url('/assets/images/dribbble_1-ezgif.com-gif-maker.gif');
   height: 400px;
   background-position: center;
 }
@@ -21,7 +21,7 @@
 
 .four_zero_four_bg h1{
   font-size:80px;
-  color: green;
+  color: whitesmoke;
 }
 
 .four_zero_four_bg h3{

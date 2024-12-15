@@ -28,15 +28,17 @@ export const headerAnimation = trigger('headerAnimation', [
   state(
     'default',
     style({
-      background: 'transparent',
-      boxShadow: 'none',
+      background: 'rgba(255, 255, 255, 0.1)',
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.2)',
     })
   ),
   state(
     'scrolled',
     style({
-      background: '#8394c7',
+      background: 'rgba(255, 255, 255, 0.1)',
+      backdropFilter: 'blur(100px)',
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+
     })
   ),
   transition('default <=> scrolled', animate('300ms ease-in-out')),

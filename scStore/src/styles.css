@@ -263,10 +263,10 @@ button {
 
 /*-- navigation--*/
 .container-fluid {
-  background-color: red;
   width: 80%;
-  border: 1px solid whitesmoke;
-  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 
 }
 .navigation.navbar {
@@ -490,11 +490,13 @@ button {
 }
 
 .box_text {
-  background: transparent;
   text-align: center;
   padding: 50px 20px 20px 20px;
-  border: #48ca95 solid 1px;
   border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px;
 }
 
 .box_text h3 {
@@ -727,7 +729,7 @@ button {
   position: fixed;
   width: 100%;
   bottom: 0;
-  background: red;
+
 
 }
 
@@ -860,10 +862,13 @@ button {
   justify-content: space-evenly;
   align-items: center;
   width: 50em;
-  border: 1px solid whitesmoke;
   min-height: 20em;
-  border-radius: 1em;
   padding: 1em 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px;
 }
 .register form .header{
   position: relative;
@@ -907,7 +912,7 @@ button {
 .register form .fields .field input{
   text-align: center;
   background-color:  transparent;
-  color: whitesmoke;
+  color: #fffbfc;
   min-width: 15em;
   min-height: 2em;
   border: none;

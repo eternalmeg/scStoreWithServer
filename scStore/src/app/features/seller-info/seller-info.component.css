@@ -2,7 +2,6 @@ table {
   width: 100%;
   height: auto;
   color: white;
-
   text-align: center;
 
 }
@@ -20,18 +19,6 @@ table td{
 
 }
 
-.total {
-  font-weight: bold;
-  color: #34ce57;
-}
-
-.buttons {
-  gap: 2em;
-}
-
-.read_more {
-  border-radius: 30px;
-}
 .clear-btn {
   width: 50%;
   border: 1px solid whitesmoke;
@@ -41,4 +28,10 @@ table td{
 }
 .laptop_box p {
   text-align: center;
+}
+
+a {
+  color: whitesmoke;
+  font-style: italic;
+  font-size: 18px;
 }
