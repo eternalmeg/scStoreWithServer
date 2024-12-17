@@ -19,8 +19,24 @@
               {{ item.owner.email }}
             </a>
           </td>
+          <td>
+            <button class="clear-btn" (click)="openModal(item, item.owner)">
+              Send Message
+            </button>
+          </td>
         </tr>
       </table>
     </div>
   </div>
 </div>
+
+
+<!-- Модален прозорец -->
+
+<app-chat
+  *ngIf="isChatModalOpen"
+  [sender]="userService.user?._id || 'Unknown user'"
+  [about]="selectedDevice?.image || ''"
+  [receiverId]="selectedSeller?._id || ''"
+  (modalClosed)="isChatModalOpen = false">
+></app-chat>

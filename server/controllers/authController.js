@@ -2,6 +2,7 @@ const router = require('express').Router();
 const authService = require('../services/authService');
 const {getErrorMessage} = require("../utils/errorUtils");
 const {isGuest, isAuth} = require("../middlewares/authMiddleWare");
+const User = require('../models/User')
 
 
 router.post('/register', async (req, res) => {
@@ -41,6 +42,8 @@ router.post('/logout', (req, res) => {
     res.clearCookie('auth')
     res.end()
 });
+
+
 
 
 router.get('/profile', isAuth, async (req, res) => {
@@ -84,9 +87,20 @@ router.post('/get-owners', async (req, res) => {
     } catch (err) {
         res.status(400).json({message: err.message})
     }
-
-
 })
+
+router.get('/:id', async (req, res) => {
+    const {id} = req.params;
+
+    try {
+        const user = await authService.getUserById(id);
+        res.status(200).json(user)
+    }catch (err){
+        res.status(400).json({message: err.message})
+    }
+})
+
+
 
 
 module.exports = router;

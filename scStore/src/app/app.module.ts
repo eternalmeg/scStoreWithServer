@@ -13,23 +13,28 @@ import {appInterceptorProvider} from "./app.interseptor";
 import {AuthenticateComponent} from './authenticate/authenticate.component';
 import {FeaturesModule} from "./features/features.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ChatComponent} from "./features/chat/chat.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    AuthenticateComponent
+    AuthenticateComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
     HomeModule,
+    FormsModule,
     UserModule,
     HttpClientModule,
     CatalogModule,
     SharedModule,
     FeaturesModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+
 
   ],
   providers: [appInterceptorProvider],

@@ -3,22 +3,29 @@ import {CommonModule} from '@angular/common';
 import {CartComponent} from './cart/cart.component';
 import {RouterLink} from "@angular/router";
 import { SellerInfoComponent } from './seller-info/seller-info.component';
+import { ChatComponent } from './chat/chat.component';
+import {FormsModule} from "@angular/forms";
+import { MailboxComponent } from './mailbox/mailbox.component';
 
 
 @NgModule({
   declarations: [
     CartComponent,
-    SellerInfoComponent
+    SellerInfoComponent,
+    ChatComponent,
+    MailboxComponent
 
 
   ],
   exports: [
     CartComponent,
-    SellerInfoComponent
+    SellerInfoComponent,
+    ChatComponent
   ],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    FormsModule
   ]
 })
 export class FeaturesModule {

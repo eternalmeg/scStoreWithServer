@@ -1,14 +1,21 @@
 <section class="banner_main">
+  <div  *ngIf="isLoggedIn && isMessage" class="notification" (click)="redirectToProfile()">
+    <i class="fa fa-bell-o"></i>
+    <span *ngIf="unreadCount > 0" class="badge">{{ unreadCount }}</span>
+  </div>
   <div class="row">
+
     <div class="col-md-6">
       <div class="text-bg">
         <p>Connecting people and devices – buy or sell your device here! </p>
         <a routerLink="/catalog">Browse products</a>
+
       </div>
     </div>
     <div class="col-md-6">
       <div class="text_img">
         <figure><img src="./assets/images/pct.png" alt="#"/></figure>
+
       </div>
     </div>
   </div>

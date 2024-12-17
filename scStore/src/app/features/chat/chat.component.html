@@ -1,0 +1,32 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <h2>Send Message</h2>
+    <form>
+      <!-- Поле From -->
+      <div class="form-group">
+        <label>From:</label>
+        <input type="text" [value]="senderName" disabled class="form-control" />
+      </div>
+      <!-- Поле About -->
+      <label>About:</label>
+      <div class="form-group">
+
+        <img [src]="about" alt="Device Image" class="device-image" />
+      </div>
+      <!-- Поле Message -->
+      <div class="form-group">
+        <label>Message:</label>
+        <textarea
+          [(ngModel)]="messageContent"
+          name="message"
+          placeholder="Type your message..."
+          rows="4"
+          class="form-control"
+        ></textarea>
+      </div>
+      <!-- Бутон Send -->
+      <button type="button" class="btn btn-primary" (click)="sendMessage()">Send</button>
+    </form>
+  </div>
+</div>

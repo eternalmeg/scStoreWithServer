@@ -576,7 +576,7 @@ button {
   display: block;
   margin-top: 50px;
   background-color:#48ca95;;
-  border-radius: 10px;
+  border-radius:4px;
   color:whitesmoke !important;
   max-width: 232px;
   padding: 0 0;
@@ -940,7 +940,7 @@ input:-webkit-autofill:active{
   padding-top: 20px;
 }
 .button input {
-  border-radius: 10px;
+  border-radius: 4px;
 }
 
 .register form .fields .button input{
@@ -951,7 +951,7 @@ input:-webkit-autofill:active{
   font-size: 1.5em;
 }
 .register form .fields .button input:hover{
-  background-color:#34ce57;
+  background-color:#48ca95;
   color: white;
   border-color: white;
   cursor: pointer;

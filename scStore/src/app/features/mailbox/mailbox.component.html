@@ -1,0 +1,47 @@
+<div class="mailbox-container">
+  <h2>Unread Messages</h2>
+
+  <!-- Списък със съобщения -->
+  <div *ngFor="let message of unreadMessages" class="message-preview">
+    <!-- Изпращач и снимка на устройството -->
+    <div class="message-info">
+      <p><strong>From:</strong> {{message.senderName }}</p>
+      <div class="device-info">
+        <img [src]="message.about" alt="Device Image" class="device-image" />
+
+      </div>
+    </div>
+
+    <!-- Бутоните Open и Mark as Read -->
+    <div class="actions">
+      <button (click)="openMessage(message)">Open</button>
+      <button (click)="markAsRead(message._id)">Mark as Read</button>
+    </div>
+  </div>
+
+  <!-- Модал за отваряне на съобщение -->
+  <div class="modal" *ngIf="selectedMessage">
+    <div class="modal-content">
+      <h3>Message from: {{ selectedMessage.senderName }}</h3>
+      <h3>About:</h3>
+      <div class="device-info">
+        <img [src]="selectedMessage.about" alt="Device Image" />
+
+      </div>
+
+      <p>{{ selectedMessage.content }}</p>
+
+      <div class="modal-actions">
+        <button (click)="replyToMessage()">Reply</button>
+        <button (click)="closeMessage()">Close</button>
+      </div>
+    </div>
+  </div>
+  <app-chat
+    *ngIf="isReplyModalOpen"
+    [sender]="currentUserId"
+    [about]="replyAbout"
+    [receiverId]="replyReceiverId"
+    (modalClosed)="closeReplyModal()"
+  ></app-chat>
+</div>

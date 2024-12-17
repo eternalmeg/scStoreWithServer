@@ -18,6 +18,8 @@ import {SellerInfoComponent} from "./features/seller-info/seller-info.component"
 import {AuthGuard} from "./core/guards/guest.guard";
 import {EditDeviceGuard} from "./core/guards/owner.guard";
 import {AboutMeComponent} from "./core/about-me/about-me.component";
+import {ChatComponent} from "./features/chat/chat.component";
+import {MailboxComponent} from "./features/mailbox/mailbox.component";
 
 
 
@@ -36,6 +38,8 @@ const routes: Routes = [
   {path: 'seller-info', component: SellerInfoComponent},
   {path: 'search', component:SearchComponent},
   {path: 'about-me', component: AboutMeComponent},
+  {path: 'chat/:receiverId', component: ChatComponent},
+  { path: 'mailbox', component: MailboxComponent },
   {path: '404', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent}
 ];

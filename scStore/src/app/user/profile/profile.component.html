@@ -9,17 +9,26 @@
         <p>Your contact info:</p>
         <p>Email: <a>{{user?.email}}</a> </p>
         <p>Phone number: <a>{{user?.phone}}</a></p>
+        <p>
+          You have:
+          <a [ngClass]="{'red': unreadMessages.length > 0, 'green': unreadMessages.length === 0}"
+             (click)="goToMailbox()">
+            {{ unreadMessages.length }}
+          </a>
+          unread messages.
+        </p>
         <div class="profile-btn">
 
           <button class="edit-btn" (click)="onToggle()">Edit</button>
           <button class="edit-btn" routerLink="/my-offers">My offers</button>
           <button class="edit-btn" routerLink="/create-offer">Create offer</button>
         </div>
+      </div>
 
       </div>
 
     </div>
-  </div>
+
 </ng-container>
 
 <ng-container *ngIf="showEditMode">

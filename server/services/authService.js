@@ -57,6 +57,17 @@ exports.getOwners = async (ownerIds) => {
    return  await User.find({_id: {$in: ownerIds}});
 }
 
+exports.getUserById = async (userId) => {
+    const user =  await User.findById(userId);
+    if(!user) {
+        console.error('User not found');
+        throw new Error('User not found');
+    }
+    return user;
+}
+
+
+
 
 async function generateToken(user) {
 
@@ -65,7 +76,7 @@ async function generateToken(user) {
         email: user.email,
     };
     console.log('Payload for JWT:', payload);
-    const token = await jwt.sign(payload, SECRET, {expiresIn: '2h'});
+    const token = await jwt.sign(payload, SECRET, {expiresIn: '24h'});
 
     const result = {
         _id: user._id,

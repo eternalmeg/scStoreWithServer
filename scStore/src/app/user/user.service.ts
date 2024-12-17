@@ -2,7 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {BehaviorSubject, map, Observable, Subscription, tap} from "rxjs";
 import {User} from "../types/user";
 import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,12 @@ export class UserService implements OnDestroy {
 
   get isLoggedIn(): boolean {
     return !!this.user;
+  }
+  get currentUserId(): string | undefined {
+    return this.user ? this.user._id : undefined;
+  }
+  get currentUserName(): string | undefined {
+    return this.user ? this.user.name: undefined;
   }
 
   subscription: Subscription;
@@ -85,6 +91,11 @@ export class UserService implements OnDestroy {
   getOwnersByIds(ownerIds: User[] | undefined): Observable<User[]> {
     return this.http.post<User[]>(`${this.api}/auth/get-owners`, {ownerIds})
   }
+
+  getUserById(userId: string): Observable<User> {
+    return this.http.get<User>(`http://localhost:3000/auth/${userId}`);
+  }
+
 
 
   ngOnDestroy(): void {

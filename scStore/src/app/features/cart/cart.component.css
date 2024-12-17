@@ -23,7 +23,11 @@ table td{
 
 .total {
   font-weight: bold;
-  color: #34ce57;
+  color:  #48ca95;
+}
+
+.titlepage h2 {
+  color: #48ca95;
 }
 
 .buttons {
@@ -31,12 +35,12 @@ table td{
 }
 
 .read_more {
-  border-radius: 10px;
+  border-radius: 4px;
 }
 .clear-btn {
   width: 50%;
   border: 1px solid whitesmoke;
-  border-radius: 30px;
+  border-radius: 4px;
   background-color: transparent;
   color: whitesmoke;
 }

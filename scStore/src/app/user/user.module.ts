@@ -9,6 +9,7 @@ import {SharedModule} from "../shared/shared.module";
 import { EditOfferComponent } from './edit-offer/edit-offer.component';
 import {Router, RouterLink} from "@angular/router";
 import { UserOffersComponent } from './user-offers/user-offers.component';
+import {FeaturesModule} from "../features/features.module";
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { UserOffersComponent } from './user-offers/user-offers.component';
         FormsModule,
         SharedModule,
         RouterLink,
+        FeaturesModule,
     ]
 })
 export class UserModule {
