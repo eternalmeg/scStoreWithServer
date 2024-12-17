@@ -1,7 +1,7 @@
 <div class="mailbox-container">
   <h2>Unread Messages</h2>
 
-  <!-- Списък със съобщения -->
+
   <div *ngFor="let message of unreadMessages" class="message-preview">
     <!-- Изпращач и снимка на устройството -->
     <div class="message-info">
@@ -12,14 +12,14 @@
       </div>
     </div>
 
-    <!-- Бутоните Open и Mark as Read -->
+
     <div class="actions">
       <button (click)="openMessage(message)">Open</button>
       <button (click)="markAsRead(message._id)">Mark as Read</button>
     </div>
   </div>
 
-  <!-- Модал за отваряне на съобщение -->
+
   <div class="modal" *ngIf="selectedMessage">
     <div class="modal-content">
       <h3>Message from: {{ selectedMessage.senderName }}</h3>

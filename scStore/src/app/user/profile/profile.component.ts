@@ -19,11 +19,6 @@ export class ProfileComponent implements OnInit {
 
   unreadMessages: Message[] = [];
   currentUserId: string = '';
-  isChatOpen: boolean = false;
-  chatReceiverId: string = '';
-  chatReceiverName: string = '';
-  chatMessages: Message[] = [];
-  newChatMessage: string = '';
   user: User | undefined;
   devices: Device[] | undefined;
   showEditMode = false;
@@ -48,7 +43,7 @@ export class ProfileComponent implements OnInit {
       this.devices = user.createdDevice;
       this.currentUserId = user?._id;
       this.loadUnreadMessages();
-      this.loadMessages();
+
     });
   }
 
@@ -62,44 +57,7 @@ export class ProfileComponent implements OnInit {
     this.router.navigate(['/mailbox']);
   }
 
-  markMessageAsRead(messageId: string): void {
-    this.chatService.markAsRead(messageId).subscribe(() => {
-      this.unreadMessages = this.unreadMessages.filter(
-        (message) => message._id !== messageId
-      );
-    });
-  }
 
-  openChat(receiverId: string): void {
-    this.isChatOpen = true;
-    this.chatReceiverId = receiverId;
-    this.chatReceiverName = 'User ' + receiverId; // Replace with actual name logic
-    this.loadChatMessages();
-  }
-
-  closeChat(): void {
-    this.isChatOpen = false;
-    this.chatMessages = [];
-  }
-
-  loadChatMessages(): void {
-    this.chatService.getConversation(this.currentUserId, this.chatReceiverId).subscribe((messages: Message[]) => {
-      this.chatMessages = messages;
-    });
-  }
-
-
-  loadMessages(): void {
-    if (this.user) {
-      this.chatService.getMessages(this.user._id).subscribe((msgs: Message[]) => {
-        this.messages = msgs.map((msg) => ({
-          senderName: msg.sender, // Replace with actual sender name if available
-          content: msg.content,
-          sender: msg.sender,
-        }));
-      });
-    }
-  }
 
   onToggle(): void {
     this.showEditMode = !this.showEditMode;
@@ -117,7 +75,7 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
-    this.isUpdating = true; // Показваме индикатора
+    this.isUpdating = true;
     const { name, phone } = this.form?.value;
     this.userService.updateProfile(name, phone).subscribe(() => {
       this.userService.getProfile().subscribe((user) => {

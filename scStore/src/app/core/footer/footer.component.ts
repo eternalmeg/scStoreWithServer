@@ -17,9 +17,9 @@ export class FooterComponent {
     const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
     if (offset > 50) {
-      this.headerState = 'scrolled'; // Промяна към "scrolled" състояние
+      this.headerState = 'scrolled';
     } else {
-      this.headerState = 'default'; // Промяна към "default" състояние
+      this.headerState = 'default';
     }
   }
 

@@ -39,12 +39,12 @@ export class MailboxComponent implements OnInit {
         this.userService.getUserById(msg.sender).pipe(
           map((user: User) => ({
             ...msg,
-            senderName: user.name, // Добавяме името на изпращача
+            senderName: user.name,
           }))
         )
       );
 
-      // Изчакваме всички заявки да завършат
+
       forkJoin(messageRequests).subscribe((messagesWithSenders) => {
         console.log('Messages with senders:', messagesWithSenders);
         this.unreadMessages = messagesWithSenders;
