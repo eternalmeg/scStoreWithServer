@@ -1,24 +1,24 @@
+require('dotenv').config();
 const express = require('express');
 const routs = require('./routs');
 const mongoose = require('mongoose');
 const { authMiddleWare } = require('./middlewares/authMiddleWare');
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
+const { setCors } = require('./middlewares/cors')
 
-
+const port=process.env.PORT || 3000;
+const dbUrl = process.env.LOCAL_DATABASE_URL || process.env.PRODUCTION_DATABASE_URL;
 
 const app = express();
 
-app.use(cors({
-    origin:'http://localhost:4200', credentials: true
-}));
+app.use(setCors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(authMiddleWare);
 app.use(routs);
 
 
-
-mongoose.connect('mongodb://127.0.0.1:27017/scStore');
+mongoose.connect(dbUrl);
 mongoose.connection.on('connected', () => console.log('connected to db'));
-app.listen(3000,  ()=> console.log('Server is listening on port 3000'));
+app.listen(port,  ()=> console.log(`Server is listening on port: ${port}`));
