@@ -25,6 +25,8 @@ Install dependencies:
 cd scStore
 npm install
 
+go to shared folder in api-config.ts, next - comment: //export const API_URL = 'https://scstorewithserver.onrender.com' uncomment : export const API_URL = 'http://localhost:3000';
+
 Start the application with the following commands:
 ng serve
 

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Device} from "../types/device";
+import {API_URL } from "../shared/api-config"
+
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class DeviceService {
 
 
 
-  api = 'http://localhost:3000'
+  api = API_URL;
 
 
   createDevice(brand: 'string', model: 'string', image: 'string', description: 'string', price: 'number') {

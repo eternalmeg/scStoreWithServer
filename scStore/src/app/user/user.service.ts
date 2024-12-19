@@ -2,6 +2,7 @@ import {Injectable, OnDestroy} from '@angular/core';
 import {BehaviorSubject, map, Observable, Subscription, tap} from "rxjs";
 import {User} from "../types/user";
 import {HttpClient} from "@angular/common/http";
+import {API_URL} from "../shared/api-config";
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class UserService implements OnDestroy {
   public user$ = this.user$$.asObservable();
 
   user: User | undefined;
-  api = 'http://localhost:3000'
+  api = API_URL
 
 
   get isLoggedIn(): boolean {

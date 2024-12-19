@@ -2,40 +2,41 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Message } from '../types/message';
+import {API_URL} from "../shared/api-config";
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
-  private apiUrl = 'http://localhost:3000/chat';
+  private api = API_URL;
 
   constructor(private http: HttpClient) {}
 
 
   sendMessage(sender: string, receiver: string, about: string, content: string): Observable<Message> {
-    return this.http.post<Message>(`${this.apiUrl}/send`, { sender, receiver,about, content });
+    return this.http.post<Message>(`${this.api}/send`, { sender, receiver,about, content });
   } //add about
 
 
   getConversation(user1: string, user2: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.apiUrl}/conversation/${user1}/${user2}`);
+    return this.http.get<Message[]>(`${this.api}/conversation/${user1}/${user2}`);
   }
 
 
   getUnreadMessages(userId: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.apiUrl}/unread/${userId}`);
+    return this.http.get<Message[]>(`${this.api}/unread/${userId}`);
   }
 
 
   markAsRead(messageId: string): Observable<Message> {
-    return this.http.patch<Message>(`${this.apiUrl}/mark-read/${messageId}`, {});
+    return this.http.patch<Message>(`${this.api}/mark-read/${messageId}`, {});
   }
 
 
   getMessages(userId: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.apiUrl}/${userId}`);
+    return this.http.get<Message[]>(`${this.api}/${userId}`);
   }
   getUnreadMessageCount(userId: string): Observable<{ unreadCount: number }> {
-    return this.http.get<{ unreadCount: number }>(`${this.apiUrl}/unread-messages/${userId}`);
+    return this.http.get<{ unreadCount: number }>(`${this.api}/unread-messages/${userId}`);
   }
 }
