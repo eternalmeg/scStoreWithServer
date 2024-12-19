@@ -14,7 +14,7 @@ const productionDb = process.env.PRODUCTION_DATABASE_URL;
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, 'dist/sc-store')));
 
 app.use(setCors());
 app.use(cookieParser());
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(authMiddleWare);
 app.use(routs);
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, 'dist/sc-store', 'index.html'));
 });
 
 
