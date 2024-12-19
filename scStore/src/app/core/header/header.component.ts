@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit{
   logoutHandler() : void {
     this.userService.logout().subscribe({
       next: () => {
-        this.router.navigate(['/login'])
+        this.router.navigate(['/home'])
       },
       error: () => {
         this.router.navigate(['/login'])
