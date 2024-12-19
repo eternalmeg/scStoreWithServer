@@ -39,7 +39,7 @@ const routes: Routes = [
   {path: 'search', component:SearchComponent},
   {path: 'about-me', component: AboutMeComponent},
   {path: 'chat/:receiverId', component: ChatComponent},
-  { path: 'mailbox', component: MailboxComponent },
+  { path: 'mailbox', component: MailboxComponent,canActivate: [AuthActivate] },
   {path: '404', component: ErrorPageComponent},
   {path: '**', component: ErrorPageComponent}
 ];

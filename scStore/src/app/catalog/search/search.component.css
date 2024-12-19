@@ -1,18 +1,19 @@
 .search-container {
   text-align: center;
-  padding-top: 300px;
+  padding-top: 100px;
   min-height: 100vh;
 
 }
 
 h2 {
-  color: whitesmoke;
+  color: darkblue;
 }
 h3 {
-  color: whitesmoke;
+  color: darkblue;
+  font-style: italic;
 }
 h4 {
-  color: whitesmoke;
+  color: darkblue;
 }
 
 #price {
@@ -49,4 +50,9 @@ button:hover {
 
 li {
   padding: 1em;
+}
+
+#no-res {
+  color: red;
+  font-style: italic;
 }

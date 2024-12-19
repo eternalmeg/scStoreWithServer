@@ -10,7 +10,7 @@
 
 textarea::placeholder,
 input::placeholder {
-  color:  #48ca95;
+  color:  gray;
   font-style: italic;
   opacity: 1;
 }

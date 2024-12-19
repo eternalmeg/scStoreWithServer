@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { authMiddleWare } = require('./middlewares/authMiddleWare');
 const cookieParser = require('cookie-parser')
 const cors = require('cors');
-const path = require('path');
+
 
 
 const app = express();
@@ -19,6 +19,6 @@ app.use(routs);
 
 
 
-mongoose.connect('mongodb://localhost:27017/scStore');
+mongoose.connect('mongodb://127.0.0.1:27017/scStore');
 mongoose.connection.on('connected', () => console.log('connected to db'));
 app.listen(3000,  ()=> console.log('Server is listening on port 3000'));

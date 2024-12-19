@@ -24,3 +24,9 @@
   font-size: 18px;
   font-weight: bold;
 }
+
+.text-bg p {
+  color: darkblue;
+  font-size: 25px;
+
+}

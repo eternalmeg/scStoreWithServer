@@ -11,7 +11,7 @@
         <p>Phone number: <a>{{user?.phone}}</a></p>
         <p>
           You have:
-          <a [ngClass]="{'red': unreadMessages.length > 0, 'green': unreadMessages.length === 0}"
+          <a id="count" [ngClass]="{'red': unreadMessages.length > 0, 'green': unreadMessages.length === 0}"
              (click)="goToMailbox()">
             {{ unreadMessages.length }}
           </a>

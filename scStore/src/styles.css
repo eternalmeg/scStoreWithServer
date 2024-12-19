@@ -44,20 +44,21 @@ body:before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image:  url("assets/images/bg3.jpg") ;
+  background-image:  url("assets/images/bg9.webp") ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   z-index: -1;
-  opacity: 69%}
+
+}
 
 
 
 
 a {
   color: #1f1f1f;
-  text-decoration: none !important;
+
   outline: none !important;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
@@ -145,14 +146,12 @@ p {
 
 a {
   color: #222222;
-  text-decoration: none;
   outline: none !important;
 }
 
-a,
+
 .btn {
-  text-decoration: none !important;
-  outline: none !important;
+  outline: none ;
   -webkit-transition: all .3s ease-in-out;
   -moz-transition: all .3s ease-in-out;
   -ms-transition: all .3s ease-in-out;
@@ -277,7 +276,7 @@ button {
 
 .navigation.navbar-dark .navbar-nav .nav-link {
   padding: 0 25px;
-  color: #fff;
+  color:darkblue;
   font-size: 17px;
   line-height: 20px;
   font-weight: 500;
@@ -285,13 +284,15 @@ button {
 
 .navigation.navbar-dark .navbar-nav .nav-link:focus,
 .navigation.navbar-dark .navbar-nav .nav-link:hover {
-  color: #51fe44;
+  color: #48ca95;
+  text-decoration: underline darkturquoise;
 }
 
 .navigation.navbar-dark .navbar-nav .active>.nav-link,
 .navigation.navbar-dark .navbar-nav .nav-link.active,
 .navigation.navbar-dark .navbar-nav .nav-link.show,
 .navigation.navbar-dark .navbar-nav .show>.nav-link {
+
 
 }
 
@@ -332,7 +333,6 @@ button {
   font-size: 40px;
   font-weight: bold;
   text-transform: uppercase;
-  color: #fff;
   line-height: 40px;
 }
 
@@ -411,8 +411,8 @@ button {
 .text-bg a {
   font-size: 17px;
   background-color: transparent;
-  border: #fff solid 2px;
-  color: #fff;
+  border: darkblue solid 2px;
+  color: darkblue;
   font-weight: 500;
   padding: 14px 0px;
   width: 100%;
@@ -425,9 +425,10 @@ button {
 }
 
 .text-bg a:hover {
-  background-color: #48ca95;
-  color: #fff;
+background-color: #48ca95;
+  text-decoration: none;
   transition: ease-in all 0.5s;
+
 }
 
 
@@ -500,7 +501,7 @@ button {
 }
 
 .box_text h3 {
-  color: whitesmoke;
+  color: darkblue;
   font-size: 20px;
   line-height: 22px;
   font-weight: bold;
@@ -510,12 +511,13 @@ button {
 
 .box_text p {
   font-size: 17px;
-  color: whitesmoke;
+  color: darkblue;
   line-height: 30px;
 }
 
 .box_text a {
-  color: #48ca95;
+  color: darkblue;
+  font-style: italic;
 }
 
 .box_text i {
@@ -530,9 +532,6 @@ button {
 /** products section **/
 
 .products {
-
-
-
   padding: 143px 0 90px 0;
 }
 
@@ -555,15 +554,10 @@ button {
   color: #fff;
   font-size: 20px;
   line-height: 20px;
-  background-color: #4f4aa6;
+  background-color: #48ca95;
   font-weight: 500;
   padding: 10px 0;
   margin: 40px auto 10px;
-  transition: ease-in all 0.5s;
-}
-
-.our_products .product_box h3:hover {
-  background: #48ca95;
   transition: ease-in all 0.5s;
 }
 
@@ -883,7 +877,7 @@ button {
   font-size: 2em;
   text-transform: uppercase;
   margin-bottom: 0;
-  color: black;
+  color: darkblue;
 
 
 }
@@ -901,23 +895,25 @@ button {
   align-items: center;
   position: relative;
   font-size: 16px;
+  width: 100%;
 
 }
 
 .register form .fields .field input::placeholder {
   text-align: center;
-  color: #48ca95;
+  color: gray;
 }
 
 .register form .fields .field input{
   text-align: center;
   background-color:  transparent;
-  color: #fffbfc;
+  color:darkblue;
   min-width: 15em;
   min-height: 2em;
   border: none;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid black;
   transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100%;
 
 }
 
@@ -926,8 +922,8 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active{
   background-color: transparent !important; /* Прозрачен фон */
-  -webkit-text-fill-color: whitesmoke !important; /* Цветът на текста */
-  border-bottom: 1px solid whitesmoke !important; /* Запазване на рамката */
+  -webkit-text-fill-color: darkblue !important; /* Цветът на текста */
+  border-bottom: 1px solid black !important; /* Запазване на рамката */
   -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
   transition: background-color 5000s ease-in-out 0s;/* Премахване на autofill фон */
   box-shadow: 0 0 0 1000px transparent inset !important; /* Съвместимост */
@@ -938,32 +934,33 @@ input:-webkit-autofill:active{
 .button {
   text-align: center;
   padding-top: 20px;
+
 }
 .button input {
   border-radius: 4px;
 }
 
 .register form .fields .button input{
-  background-color: transparent;
+  background-color: #48ca95;
   color: whitesmoke;
-  border: 2px solid whitesmoke;
+  border: 1px;
   padding: 0 20px;
   font-size: 1.5em;
 }
 .register form .fields .button input:hover{
-  background-color:#48ca95;
-  color: white;
-  border-color: white;
+  background-color: #000;
+  transition: ease-in all 0.5s;
+  color: #fff;
   cursor: pointer;
 }
 
 h5 {
   font-style: italic;
-  font-size: 1em;
+  font-size: 16px;
   font-weight: normal;
 }
 h5 a {
-  color: #34ce57;
+  color: darkturquoise;
   font-size: 1em;
 }
 

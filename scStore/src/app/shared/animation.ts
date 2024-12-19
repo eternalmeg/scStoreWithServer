@@ -4,7 +4,7 @@ export const fieldAnimation = trigger('fieldAnimation', [
   state(
     'valid',
     style({
-      borderColor: 'whitesmoke',
+      borderColor: 'black',
       transform: 'translateX(0)',
     })
   ),

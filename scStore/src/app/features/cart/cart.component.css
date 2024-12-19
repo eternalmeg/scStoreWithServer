@@ -1,15 +1,16 @@
 table {
   width: 100%;
   height: auto;
-  color: white;
-
+  color: darkblue;
   text-align: center;
 
 }
 
+
+
 table td{
   font-size: 18px;
-  border-bottom: 1px solid whitesmoke;
+  border-bottom: 1px solid black;
   width: 30%;
   height: 80px;
 
@@ -23,11 +24,11 @@ table td{
 
 .total {
   font-weight: bold;
-  color:  #48ca95;
+  color:  darkblue;
 }
 
 .titlepage h2 {
-  color: #48ca95;
+  color: darkblue;
 }
 
 .buttons {
@@ -39,11 +40,21 @@ table td{
 }
 .clear-btn {
   width: 50%;
-  border: 1px solid whitesmoke;
   border-radius: 4px;
-  background-color: transparent;
-  color: whitesmoke;
+  color: #fff;
+  background-color: #48ca95;
+
+
 }
+
+.clear-btn:hover {
+  background-color: #000;
+  transition: ease-in all 0.5s;
+  color: #fff;
+}
+
+
+
 .laptop_box p {
   text-align: center;
 }

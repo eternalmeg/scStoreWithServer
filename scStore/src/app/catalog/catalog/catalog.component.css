@@ -3,27 +3,25 @@ button {
   color: #fff;
   font-size: 20px;
   line-height: 20px;
-  background-color: #252525;
+  background-color: #48ca95;
   font-weight: 500;
-  margin: 0 auto;
   padding: 10px 0;
-  margin-top: 10px;
-  transition: ease-in all 0.5s;
-}
+  margin: 10px auto 0;
 
-h2 {
-  color: whitesmoke;
 }
-
-button {
-  background-color: #4f4aa6;
-}
-
 
 button:hover {
-  background: #48ca95;
+  background-color: #000;
   transition: ease-in all 0.5s;
+  color: #fff;
 }
+
+
+h2 {
+  color: darkblue;
+}
+
+
 .empty {
   text-align: center;
   width: 100%;
@@ -39,7 +37,7 @@ img {
   height: 300px;
   object-fit: contain;
   overflow: hidden;
-  border: 1px solid #48ca95;
+  border: 2px solid #48ca95;
   border-radius: 5px;
 }
 

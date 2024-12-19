@@ -11,6 +11,7 @@ Offers: Registered users can create, edit, and delete their offers for selling d
 Profile Page: Each user has their own profile page, which can be edited.
 Search and Filter: The application provides a search feature that allows users to filter devices by brand.
 Wish List: Users can add devices to their wish list and contact the seller using the provided contact information.
+Mailbox: Users can send messages to each other, read them and reply.
 Guest Users: Guests can browse the device catalog and view detailed device pages, but they do not have access to seller information.
 Technologies Used:
 Frontend (FE): Angular 16
@@ -19,13 +20,26 @@ Database: MongoDB
 Running the Project:
 1. Start Frontend:
 Navigate to the ScStore folder.
-Start the server with the following commands:
-npm install then
+Install dependencies:
+
+cd scStore
+npm install
+
+Start the application with the following commands:
 ng serve
-3. Start Backend:
+
+
+2. Start Backend:
 Navigate to the Server folder.
+Install dependencies:
+cd server
+npm install
 Start the server with the following commands:
-npm instal then
 npm start
+
 The server will run on port 3000.
 The database will be connected to localhost:27017, with the name scStore.
+
+
+3. Make sure that MongoDB is running locally at mongodb://localhost:27017.
+

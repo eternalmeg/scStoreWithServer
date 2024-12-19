@@ -1,5 +1,5 @@
 .box_text a {
-  color: #48ca95;
+  color: darkblue;
 }
 
 
@@ -32,12 +32,16 @@
 }
 
 .red {
-  color: red;
+  color: red !important;
   font-weight: bold;
 }
 
 .green {
-  color: green;
+  color: green !important;
+}
+
+#count {
+  cursor: pointer;
 }
 
 

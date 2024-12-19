@@ -99,7 +99,7 @@
 p {
   font-size: 20px;
   line-height: 30px;
-  color: whitesmoke;
+  color: darkblue;
 }
 
 
@@ -113,7 +113,7 @@ p {
   display: block;
 
   margin: 50px auto;
-  border-radius: 30px;
+  border-radius: 4px;
   font-weight: 500;
 }
 
@@ -133,11 +133,12 @@ p {
 
 .info-cell.model a {
   color: #48ca95;
-  font-weight: bold;
+
 }
 .info-cell.price a {
   color: red;
   font-size: 25px;
+  font-style: italic;
 }
 
 .read-more-btn {

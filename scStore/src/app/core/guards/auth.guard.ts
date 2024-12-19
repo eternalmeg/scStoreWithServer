@@ -20,9 +20,7 @@ export class AuthActivate implements CanActivate {
     if (this.userService.isLoggedIn) {
       return true;
     } else {
-      return this.router.createUrlTree(['/login'], {
-        queryParams: { returnUrl: state.url },
-      });
+      return this.router.createUrlTree(['/login']);
     }
   }
 }
