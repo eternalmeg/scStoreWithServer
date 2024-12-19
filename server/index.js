@@ -13,7 +13,19 @@ const productionDb = process.env.PRODUCTION_DATABASE_URL;
 
 const app = express();
 
-app.use(setCors());
+app.use(cors({
+    origin: function (origin, callback) {
+        const allowedOrigins = ['http://localhost:4200', 'https://scstorewithserver.onrender.com'];
+
+
+        if (allowedOrigins.includes(origin) || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('CORS not allowed'), false);
+        }
+    },
+    credentials: true
+}));
 app.use(cookieParser());
 app.use(express.json());
 app.use(authMiddleWare);

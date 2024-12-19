@@ -19,7 +19,7 @@ function setCors() {
 
 
         if (req.method === "OPTIONS") {
-            return res.status(200).end();  
+            return res.status(200).end();
         }
 
         next();
