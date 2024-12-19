@@ -34,7 +34,7 @@ export class ChatService {
 
 
   getMessages(userId: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.api}/${userId}`);
+    return this.http.get<Message[]>(`${this.api}/chat/${userId}`);
   }
   getUnreadMessageCount(userId: string): Observable<{ unreadCount: number }> {
     return this.http.get<{ unreadCount: number }>(`${this.api}/chat/unread-messages/${userId}`);

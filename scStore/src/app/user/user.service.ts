@@ -94,7 +94,7 @@ export class UserService implements OnDestroy {
   }
 
   getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`http://localhost:3000/auth/${userId}`);
+    return this.http.get<User>(`${this.api}/auth/${userId}`);
   }
 
 
