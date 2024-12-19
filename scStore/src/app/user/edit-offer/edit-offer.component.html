@@ -35,6 +35,7 @@
          ngModel
          #description="ngModel"
          required
+         maxlength="480"
          [@fieldAnimation]="description.touched && description.invalid ? 'invalid' : 'valid'">
   </textarea>
           <div class="error" *ngIf="description.touched">
@@ -48,6 +49,9 @@
           <div class="error" *ngIf="price.touched">
             <div *ngIf="price.errors?.['required']">
               Price is required!
+            </div>
+            <div *ngIf="description.errors?.['maxlength'] ">
+              Description can not be longer than 480 characters!
             </div>
           </div>
         </div>
