@@ -19,31 +19,23 @@ Backend (BE): Express.js
 Database: MongoDB
 Running the Project:
 1. Start Frontend:
-Navigate to the ScStore folder.
-Install dependencies:
+Navigate to the ScStore folder: cd scStore
+Install dependencies:npm install
 
-cd scStore
-npm install
-
-go to shared folder in api-config.ts, next - comment: //export const API_URL = 'https://scstorewithserver.onrender.com' uncomment : export const API_URL = 'http://localhost:3000';
+go to shared folder in api-config.ts, -->comment: //export const API_URL = 'https://scstorewithserver.onrender.com' and uncomment : export const API_URL = 'http://localhost:3000';
 
 Start the application with the following commands:
 ng serve
 
 
 2. Start Backend:
-Navigate to the Server folder.
-Install dependencies:
-cd server
-npm install
+Navigate to the Server folder: cd server
+Install dependencies: npm install
 Start the server with the following commands:
 npm start
 
-DB: in index.js chane productionDb in mongoose.connect(productionDb) with localDbUrl
-
-The server will run on port 3000.
+DB: in index.js exchange "productionDb" with "with localDbUrl "in mongoose.connect(productionDb) 
 The database will be connected to localhost:27017, with the name scStore.
 
-
-3. Make sure that MongoDB is running locally at mongodb://localhost:27017.
-
+deployment link: https://scstorewithserver-1.onrender.com/home 
+You might need to wait around 20 seconds as I am using the free plan on Render.
