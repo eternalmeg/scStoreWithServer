@@ -8,7 +8,8 @@ const cors = require('cors');
 const { setCors } = require('./middlewares/cors')
 
 const port=process.env.PORT || 3000;
-const dbUrl = process.env.LOCAL_DATABASE_URL || process.env.PRODUCTION_DATABASE_URL;
+const localDbUrl = process.env.LOCAL_DATABASE_URL;
+const productionDb = process.env.PRODUCTION_DATABASE_URL;
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(authMiddleWare);
 app.use(routs);
 
 
-mongoose.connect(dbUrl);
+
+mongoose.connect(productionDb);
 mongoose.connection.on('connected', () => console.log('connected to db'));
 app.listen(port,  ()=> console.log(`Server is listening on port: ${port}`));

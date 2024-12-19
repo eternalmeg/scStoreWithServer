@@ -37,6 +37,8 @@ npm install
 Start the server with the following commands:
 npm start
 
+DB: in index.js chane productionDb in mongoose.connect(productionDb) with localDbUrl
+
 The server will run on port 3000.
 The database will be connected to localhost:27017, with the name scStore.
 
