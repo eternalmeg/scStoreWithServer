@@ -11,5 +11,6 @@ export interface Device {
     user?: User
   }
   owner: User;
+  createdAt: string;
   __v?: number;
 }

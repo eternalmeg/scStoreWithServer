@@ -5,6 +5,7 @@ import {AppMatchPasswordsDirective} from "./directives/app-match-passwords.direc
 import {ErrorMessageComponent} from "./error-message/error-message.component";
 import { ErrorPageComponent } from './error-page/error-page.component';
 import {RouterLink} from "@angular/router";
+import {TimeFormatPipe} from "./pipes/time-format.pipe";
 
 
 @NgModule({
@@ -13,14 +14,16 @@ import {RouterLink} from "@angular/router";
     AppMatchPasswordsDirective,
     ErrorMessageComponent,
     ErrorPageComponent,
-    LoaderComponent
+    LoaderComponent,
+    TimeFormatPipe,
 
   ],
   exports: [
     AppMatchPasswordsDirective,
     ErrorMessageComponent,
     ErrorPageComponent,
-    LoaderComponent
+    LoaderComponent,
+    TimeFormatPipe
   ],
     imports: [
         CommonModule,

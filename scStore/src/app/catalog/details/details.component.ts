@@ -29,6 +29,7 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.deviceService.getDevice(this.deviceId).subscribe(device => {
       this.device = device;
+      console.log(device)
       this.length = this.device.description.length;
       this.userService.user$.subscribe((user) => {
         if (user) {
@@ -48,7 +49,7 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  // Getter за скъсен текст
+
   get truncatedDescription(): string {
     if (this.length) {
       return this.length > 500

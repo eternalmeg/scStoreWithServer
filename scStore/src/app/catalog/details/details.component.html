@@ -7,12 +7,13 @@
                      alt="{{device?.brand}} logo"
                      class="brand-logo"></figure>
         <h3>Brand: {{ device?.brand }} </h3>
+        <p>Posted at: {{device?.createdAt | timeFormat}}</p>
       </div>
 
       <div class="box_text_test1">
 
         <div class="info-cell model">
-          <p>Model: <a>{{ device?.model }}</a> </p>
+          <p>Model: <a>{{ device?.model }}</a></p>
         </div>
         <div class="info-cell price">
           <p class="price">Price: <a>{{ device?.price }} </a> BGN</p>

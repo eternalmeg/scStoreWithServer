@@ -11,7 +11,7 @@ import {ChatService} from "../chat-service.service";
   styleUrls: ['./seller-info.component.css']
 })
 export class SellerInfoComponent {
-  devicesWithOwners: { brand: string; model: string;image: string,description: string, price: number; owner: User }[] = [];
+  devicesWithOwners: { brand: string; model: string;image: string,description: string, price: number; owner: User, createdAt: string }[] = [];
 
   constructor(protected userService: UserService, private router: Router, private chatService: ChatService) {
     const navigation = this.router.getCurrentNavigation();
@@ -25,8 +25,8 @@ export class SellerInfoComponent {
 
 
 
-  openModal(device: { brand: string; model: string; image: string;description:string, price: number; owner: User }, seller: User): void {
-    console.log('hello from modal')
+  openModal(device: { brand: string; model: string; image: string;description:string, price: number; owner: User, createdAt: string  }, seller: User): void {
+    console.log('Device:', device);
     this.isChatModalOpen = true;
     this.selectedDevice = device;
     this.selectedSeller = seller;
