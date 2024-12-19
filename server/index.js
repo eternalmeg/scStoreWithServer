@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors({
     origin: function (origin, callback) {
-        const allowedOrigins = ['http://localhost:4200', 'https://scstorewithserver.onrender.com'];
+        const allowedOrigins = ['http://localhost:4200', 'https://scstorewithserver-1.onrender.com'];
 
 
         if (allowedOrigins.includes(origin) || !origin) {
