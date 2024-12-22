@@ -56,13 +56,13 @@
 
           <div class="field">
 
-            <input type="text" name="phone"   ngModel #phone="ngModel" required min="1" max="10" [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
+            <input type="text" name="phone"   ngModel #phone="ngModel" required min="6" max="12" [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
             <div class="error" *ngIf="phone.touched">
               <div *ngIf="phone.errors?.['required']">
                 Phone number is required!
               </div>
               <div *ngIf="phone.errors?.['min'] || phone.errors?.['max']">
-                Phone number must be between 1 and 10!
+                Phone number must be between 6 and 12!
               </div>
             </div>
           </div>
