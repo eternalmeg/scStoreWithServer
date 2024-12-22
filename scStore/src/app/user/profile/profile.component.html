@@ -1,4 +1,5 @@
-<div *ngIf="isUpdating" class="loading-spinner">Updating...</div>
+
+
 <ng-container *ngIf="!showEditMode">
   <div class="three_box">
     <div class="container">
@@ -32,13 +33,14 @@
 </ng-container>
 
 <ng-container *ngIf="showEditMode">
+
+  <span><app-error-message /></span>
   <div class="contact">
     <div class="register">
       <form #form="ngForm" (ngSubmit)="submitHandler()">
 
         <div class="form-header">
           <h3>Profile Info</h3>
-          <app-error-message />
         </div>
 
         <div class="fields">
