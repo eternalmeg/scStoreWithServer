@@ -43,15 +43,37 @@ exports.getInfo = async (userId) => {
     return user
 };
 
-exports.edit =  async (userId, userData) => {
-   const user = await User.findByIdAndUpdate(userId, userData, {runValidators: true});
-    const payload = {
-        _id: user._id,
-        email: user.email,
-    };
-    const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
-    return {user, token}
-}
+exports.edit = async (userId, userData) => {
+    try {
+        const user = await User.findByIdAndUpdate(userId, userData, {
+            runValidators: true,
+            new: true // Връща обновения потребител вместо стария
+        });
+
+        if (!user) {
+            throw new Error('User not found'); // Съобщение, ако потребителят не е намерен
+        }
+
+        const payload = {
+            _id: user._id,
+            email: user.email,
+        };
+        const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
+
+        return { user, token };
+    } catch (err) {
+        // Ако грешката е от Mongoose (валидация или друга)
+        if (err.name === 'ValidationError') {
+            const errorMessages = Object.values(err.errors).map(e => e.message);
+            throw new Error(`Validation failed: ${errorMessages.join(', ')}`);
+        }
+
+        // Ако грешката е различна
+        throw new Error(err.message || 'An error occurred while updating the user');
+    }
+};
+
+
 
 exports.getOwners = async (ownerIds) => {
    return  await User.find({_id: {$in: ownerIds}});
