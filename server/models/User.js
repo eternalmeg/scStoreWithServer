@@ -17,12 +17,13 @@ const userSchema = new mongoose.Schema({
     phone: {
         type: String,
         required: [true, 'Phone is required'],
-        minLength: 6,
-        maxLength: 12
+        minLength: [6, 'Phone must be 6 characters at least'],
+        maxLength:  [12, 'Phone can not be more than 12 characters']
+        
     },
     password: {
         type: String,
-        minLength: 4,
+        minLength: [4, 'Password must be 4 characters at lest'],
         required: [true, 'password is required']
     },
     createdDevice: [{
