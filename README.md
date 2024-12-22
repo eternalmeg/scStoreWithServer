@@ -38,4 +38,4 @@ DB: in index.js exchange "productionDb" with "with localDbUrl "in mongoose.conne
 The database will be connected to localhost:27017, with the name scStore.
 
 deployment link: https://scstorewithserver-1.onrender.com/home 
-You might need to wait around 20 seconds as I am using the free plan on Render.
+You might need to wait around 40 seconds as I am using the free plan on Render.
