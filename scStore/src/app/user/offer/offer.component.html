@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="field">
-          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required maxlength="10" pattern="^[0-9]*$" value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required pattern="^[0-9]*$" value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="price.touched">
             <div *ngIf="price.errors?.['required']">
               Price is required!
