@@ -13,7 +13,7 @@ const deviceSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        match: /^https?:\/\/\S+$/,
+        match:[/^https?:\/\/\S+$/, 'Url must start with https'],
         required: true
     },
     description: {
