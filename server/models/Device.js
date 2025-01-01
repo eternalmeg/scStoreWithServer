@@ -8,7 +8,7 @@ const deviceSchema = new mongoose.Schema({
     },
     model: {
         type: String,
-        minLength: [5, 'Minimum characters 5'],
+        minLength: [2, 'Minimum characters 2'],
         required: true
     },
     image: {
