@@ -14,3 +14,7 @@ input::placeholder {
   font-style: italic;
   opacity: 1;
 }
+
+.register form .fields .button input {
+  margin-right: 5px;
+}
