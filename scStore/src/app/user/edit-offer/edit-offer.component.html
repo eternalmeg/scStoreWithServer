@@ -7,23 +7,34 @@
     <form #form="ngForm" (ngSubmit)="submitHandler()">
       <div class="form-header">
         <h3>Edit your offer here</h3>
-
       </div>
       <div class="fields">
 
         <div class="field">
-          <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel"  required value=""  [@fieldAnimation]="brand.touched && brand.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel" required minlength="2" maxlength="12" value=""  [@fieldAnimation]="brand.touched && brand.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="brand.touched">
             <div *ngIf="brand.errors?.['required']">
               Brand is required!
             </div>
+            <div *ngIf="brand.errors?.['minlength']">
+              At least 2 characters!
+            </div>
+            <div *ngIf="brand.errors?.['maxlength']">
+              Can not be more than 12 characters!
+            </div>
           </div>
         </div>
         <div class="field">
-          <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required value=""  [@fieldAnimation]="model.touched && model.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required minlength="2" maxlength="15" value=""  [@fieldAnimation]="model.touched && model.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="model.touched">
             <div *ngIf="model.errors?.['required']">
               Model is required!
+            </div>
+            <div *ngIf="model.errors?.['minlength']">
+              At least 2 characters!
+            </div>
+            <div *ngIf="model.errors?.['maxlength']">
+              Can not be more than 15 characters!
             </div>
           </div>
         </div>
@@ -42,16 +53,22 @@
             <div *ngIf="description.errors?.['required']">
               Description is required!
             </div>
+            <div *ngIf="description.errors?.['maxlength'] ">
+              Description can not be longer than 480 characters!
+            </div>
           </div>
         </div>
         <div class="field">
-          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required maxlength="10" pattern="^[0-9]*$"  value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="price.touched">
             <div *ngIf="price.errors?.['required']">
               Price is required!
             </div>
-            <div *ngIf="description.errors?.['maxlength'] ">
-              Description can not be longer than 480 characters!
+            <div *ngIf="price.errors?.['maxlength'] ">
+              Wow...that's too much!
+            </div>
+            <div *ngIf="price.errors?.['pattern']">
+              Please enter valid value!
             </div>
           </div>
         </div>
@@ -65,7 +82,7 @@
         </div>
         <div class="button">
           <input type="submit" class="btn" value="Edit Product" />
-           <input type="submit" class="btn" [routerLink]="['/', 'device-details', deviceId]" value="Cancel" />
+          <input type="submit" class="btn" [routerLink]="['/', 'device-details', deviceId]" value="Cancel" />
         </div>
       </div>
     </form>
