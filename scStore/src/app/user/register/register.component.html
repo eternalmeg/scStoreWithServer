@@ -12,10 +12,16 @@
 
       <div class="fields">
         <div class="field">
-          <input type="text" placeholder="name" name="name" ngModel #name="ngModel" required minlength="5"  [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'"/>
+          <input type="text" placeholder="name" name="name" ngModel #name="ngModel" appNoScripts appNoSpacesOrTabs minlength="5"  [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'"/>
           <div class="error" *ngIf="name.touched">
             <div *ngIf="name.errors?.['minlength'] ">
               Name must be more then 5 characters!
+            </div>
+             <div *ngIf="name.errors?.['noScripts'] ">
+              Scripts or HTML tags are not allowed!
+            </div>
+            <div *ngIf="name.errors?.['noSpacesOrTabs']">
+              No empty fields allowed!
             </div>
           </div>
         </div>
