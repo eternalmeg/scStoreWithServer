@@ -16,10 +16,12 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ChatComponent} from "./features/chat/chat.component";
 import {FormsModule} from "@angular/forms";
 
+
 @NgModule({
   declarations: [
     AppComponent,
     AuthenticateComponent,
+
 
   ],
   imports: [
@@ -38,6 +40,9 @@ import {FormsModule} from "@angular/forms";
 
   ],
   providers: [appInterceptorProvider],
+  exports: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

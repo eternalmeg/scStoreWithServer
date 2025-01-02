@@ -9,6 +9,17 @@ exports.register = async (userData) => {
     if (userExistCheck) {
         throw new Error('This email address is already used.');
     }
+    if(!userData.name || userData.name.trim() === '') {
+        throw new Error('No empty fields or script allowed')
+    }
+    if(!userData.phone || userData.phone.trim() === '') {
+        throw new Error('No empty fields or script allowed')
+    }
+
+    if(!userData.password || userData.password.trim() === '') {
+        throw new Error('No empty fields or script allowed')
+    }
+
     const user = await User.create(userData);
     const result = generateToken(user);
     return result;
@@ -43,15 +54,44 @@ exports.getInfo = async (userId) => {
     return user
 };
 
-exports.edit =  async (userId, userData) => {
-   const user = await User.findByIdAndUpdate(userId, userData, {runValidators: true});
-    const payload = {
-        _id: user._id,
-        email: user.email,
-    };
-    const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
-    return {user, token}
-}
+exports.edit = async (userId, userData) => {
+    if(!userData.name || userData.name.trim() === '') {
+        throw new Error('No empty fields or script allowed')
+    }
+    if(!userData.phone || userData.phone.trim() === '') {
+        throw new Error('No empty fields or script allowed')
+    }
+
+    try {
+        const user = await User.findByIdAndUpdate(userId, userData, {
+            runValidators: true,
+            new: true
+        });
+
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        const payload = {
+            _id: user._id,
+            email: user.email,
+        };
+        const token = await jwt.sign(payload, SECRET, { expiresIn: '2h' });
+
+        return { user, token };
+    } catch (err) {
+
+        if (err.name === 'ValidationError') {
+            const errorMessages = Object.values(err.errors).map(e => e.message);
+            throw new Error(`Validation failed: ${errorMessages.join(', ')}`);
+        }
+
+
+        throw new Error(err.message || 'An error occurred while updating the user');
+    }
+};
+
+
 
 exports.getOwners = async (ownerIds) => {
    return  await User.find({_id: {$in: ownerIds}});

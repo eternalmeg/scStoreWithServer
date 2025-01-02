@@ -21,7 +21,7 @@ export class OfferComponent {
     }
     const{brand, model, image, description, price} = form.value;
     this.deviceService.createDevice(brand, model,image, description, price).subscribe(()=> {
-      this.router.navigate(["/home"])
+      this.router.navigate(["/catalog"])
     })
 
   }

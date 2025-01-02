@@ -4,6 +4,7 @@ import {DeviceService} from "../../catalog/device.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {fieldAnimation} from "../../shared/animation";
+import {max} from "rxjs";
 
 @Component({
   selector: 'app-edit-offer',
@@ -38,4 +39,6 @@ export class EditOfferComponent implements OnInit{
   }
 
 
+  protected readonly max = max;
+  protected readonly parent = parent;
 }

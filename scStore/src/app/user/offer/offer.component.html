@@ -1,35 +1,48 @@
 <div class="contact">
-
+  <span><app-error-message /></span>
 
   <div class="register">
     <form #form="ngForm" (ngSubmit)="submitHandler(form)">
 
       <div class="form-header">
         <h3>Create your offer here</h3>
-        <app-error-message />
-      </div>
 
+      </div>
       <div class="fields">
         <div class="field">
-          <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel"  required value=""  [@fieldAnimation]="brand.touched && brand.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="brand" name="brand" placeholder="brand" ngModel #brand="ngModel" appNoSpacesOrTabs appNoScripts minlength="2" maxlength="12" value=""  [@fieldAnimation]="brand.touched && brand.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="brand.touched">
-            <div *ngIf="brand.errors?.['required']">
-              Brand is required!
+            <div *ngIf="brand.errors?.['minlength']">
+              At least 2 characters!
+            </div>
+            <div *ngIf="brand.errors?.['maxlength']">
+              Can not be more than 12 characters!
+            </div>
+            <div *ngIf="brand.errors?.['noSpacesOrTabs']">
+              No empty fields allowed!
+            </div>
+            <div *ngIf="brand.errors?.['noScripts'] ">
+              Scripts or HTML tags are not allowed!
             </div>
           </div>
         </div>
-
-
         <div class="field">
-
-          <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" required value=""  [@fieldAnimation]="model.touched && model.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="model" name="model" placeholder="model" ngModel #model="ngModel" appNoSpacesOrTabs appNoScripts minlength="2" maxlength="15" value=""  [@fieldAnimation]="model.touched && model.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="model.touched">
-            <div *ngIf="model.errors?.['required']">
-              Model is required!
+            <div *ngIf="model.errors?.['minlength']">
+              At least 2 characters!
+            </div>
+            <div *ngIf="model.errors?.['maxlength']">
+              Can not be more than 15 characters!
+            </div>
+            <div *ngIf="model.errors?.['noSpacesOrTabs']">
+              No empty fields allowed!
+            </div>
+            <div *ngIf="model.errors?.['noScripts'] ">
+              Scripts or HTML tags are not allowed!
             </div>
           </div>
         </div>
-
         <div class="field">
   <textarea
     id="description"
@@ -37,37 +50,49 @@
     placeholder="Description"
     ngModel
     #description="ngModel"
-    required
+    maxlength="480"
+    minlength="10"
+    appNoSpacesOrTabs
+    appNoScripts
     [@fieldAnimation]="description.touched && description.invalid ? 'invalid' : 'valid'">
   </textarea>
           <div class="error" *ngIf="description.touched">
-            <div *ngIf="description.errors?.['required']">
-              Description is required!
+            <div *ngIf="description.errors?.['maxlength'] ">
+              Description can not be longer than 480 characters!
+            </div>
+            <div *ngIf="description.errors?.['minlength'] ">
+              At least 10 characters!
+            </div>
+            <div *ngIf="description.errors?.['noSpacesOrTabs']">
+              No empty fields allowed!
+            </div>
+            <div *ngIf="description.errors?.['noScripts'] ">
+              Scripts or HTML tags are not allowed!
             </div>
           </div>
         </div>
-
-
         <div class="field">
-
-          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="price" name="price" placeholder="price" ngModel #price="ngModel" required pattern="^[0-9]*$" value=""  [@fieldAnimation]="price.touched && price.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="price.touched">
             <div *ngIf="price.errors?.['required']">
-              Price is required!
+              No empty fields allowed!
+            </div>
+            <div *ngIf="price.errors?.['pattern']">
+              Please enter valid value!
             </div>
           </div>
         </div>
-
         <div class="field">
-
-          <input type="text" id="image" name="image" placeholder="image URL" ngModel #image="ngModel" required value=""  [@fieldAnimation]="image.touched && image.invalid ? 'invalid' : 'valid'">
+          <input type="text" id="image" name="image" placeholder="image URL" ngModel #image="ngModel" required appNoScripts value=""  [@fieldAnimation]="image.touched && image.invalid ? 'invalid' : 'valid'">
           <div class="error" *ngIf="image.touched">
             <div *ngIf="image.errors?.['required']">
-              Image is required!
+              No empty fields allowed!
+            </div>
+            <div *ngIf="image.errors?.['noScripts'] ">
+              Scripts or HTML tags are not allowed!
             </div>
           </div>
         </div>
-
 
         <div class="button">
           <input type="submit" value="Create" />

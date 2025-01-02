@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {isAuth} = require("../middlewares/authMiddleWare");
 const deviceService = require('../services/deviceService');
 const authService = require('../services/authService')
+const sanitizeMiddleware = require('../middlewares/sanitizeMiddleware')
 
 router.get('/latest', async (req, res) => {
 
@@ -25,7 +26,7 @@ router.get('/catalog', async (req, res) => {
 });
 
 
-router.post('/create', isAuth, async (req, res) => {
+router.post('/create', isAuth,sanitizeMiddleware, async (req, res) => {
     const deviceData = req.body;
 
     try {
@@ -102,12 +103,12 @@ router.post('/cancel-all', isAuth, async (req,res) => {
 
 //@@@@@@@@@@@@@@@@@@
 
-
 router.delete('/:deviceId', isAuth, async (req, res) => {
     let deviceId = req.params.deviceId
+    const userId = req.user._id;
     console.log(deviceId)
     try {
-        await deviceService.delete(req.params.deviceId)
+        await deviceService.delete1(req.params.deviceId, userId)
         res.status(204).end()
     } catch (err) {
         res.status(401).json({message: err.message})
@@ -115,7 +116,7 @@ router.delete('/:deviceId', isAuth, async (req, res) => {
 });
 
 
-router.put('/:deviceId', isAuth, async (req, res) => {
+router.put('/:deviceId', isAuth,sanitizeMiddleware, async (req, res) => {
     const deviceData = req.body;
 
     try {

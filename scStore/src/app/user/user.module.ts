@@ -12,6 +12,7 @@ import { UserOffersComponent } from './user-offers/user-offers.component';
 import {FeaturesModule} from "../features/features.module";
 
 
+
 @NgModule({
   declarations: [
     RegisterComponent,
@@ -30,13 +31,13 @@ import {FeaturesModule} from "../features/features.module";
     EditOfferComponent,
     UserOffersComponent
   ],
-    imports: [
-        CommonModule,
-        FormsModule,
-        SharedModule,
-        RouterLink,
-        FeaturesModule,
-    ]
+  imports: [
+    CommonModule,
+    FormsModule,
+    SharedModule,
+    RouterLink,
+    FeaturesModule,
+  ]
 })
 export class UserModule {
 }

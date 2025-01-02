@@ -1,27 +1,36 @@
 const mongoose = require('mongoose');
 
+const noSpaceValidator = {
+    validator: function (value) {
+        return !/\s/.test(value);
+    }, message: 'No empty space or tabs!'
+}
+
 const deviceSchema = new mongoose.Schema({
     brand: {
         type: String,
         minLength: [2, 'Minimum characters 2'],
-        required: true
+        maxLength: [12, 'Max characters 12'],
+        required: true,
+        validate: noSpaceValidator
     },
     model: {
         type: String,
-        minLength: [5, 'Minimum characters 5'],
-        required: true
+        minLength: [2, 'Minimum characters 2'],
+        maxLength: [15, 'Max characters: 15'],
+        required: true,
     },
     image: {
         type: String,
-        match: /^https?:\/\/\S+$/,
+        match: [/^https?:\/\/\S+$/, 'Url must starts with https'],
         required: true
     },
     description: {
         type: String,
         minLength: [10, 'Minimum characters 10'],
-        required: true
+        maxLength: [480, 'Max characters: 480'],
+        required: true,
     },
-
     price: {
         type: Number,
         min: 0,

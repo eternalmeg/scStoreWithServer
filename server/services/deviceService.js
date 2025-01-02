@@ -57,6 +57,12 @@ exports.cancelMultiPrefer = async (deviceIds, userId) => {
 
 exports.delete = (deviceId) => Device.findByIdAndDelete(deviceId);
 
+exports.delete1 = async (deviceId, userId) => {
+    await Device.findByIdAndDelete(deviceId);
+    await User.findByIdAndUpdate(userId, {$pull: {createdDevice: deviceId}}, {runValidators: true} )
+
+}
+
 exports.edit = (deviceId, deviceData) => Device.findByIdAndUpdate(deviceId, deviceData, {runValidators: true})
 
 exports.deleteMultiple = (deviceIds) => {

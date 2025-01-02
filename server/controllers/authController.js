@@ -3,9 +3,10 @@ const authService = require('../services/authService');
 const {getErrorMessage} = require("../utils/errorUtils");
 const {isGuest, isAuth} = require("../middlewares/authMiddleWare");
 const User = require('../models/User')
+const sanitizeMiddleware = require('../middlewares/sanitizeMiddleware')
 
 
-router.post('/register', async (req, res) => {
+router.post('/register',sanitizeMiddleware, async (req, res) => {
 
     try {
         const result = await authService.register(req.body);
@@ -39,10 +40,14 @@ router.post('/login', async (req, res) => {
 })
 
 router.post('/logout', (req, res) => {
-    res.clearCookie('auth')
-    res.end()
+    res.clearCookie('auth', {
+        path: '/',
+        httpOnly: true,
+        secure: true,
+        sameSite: 'None'
+    });
+    res.status(200).json({ message: 'Logout successful' });
 });
-
 
 
 
@@ -55,12 +60,12 @@ router.get('/profile', isAuth, async (req, res) => {
         res.json(user)
     } catch (err) {
         res.status(400).json({
-            message: "err"
+            message: err.message
         })
     }
 })
 
-router.put('/profile', isAuth, async (req, res) => {
+router.put('/profile', isAuth,sanitizeMiddleware, async (req, res) => {
     const id = req.user?._id
     const userData = req.body;
     console.log(userData)
@@ -73,8 +78,9 @@ router.put('/profile', isAuth, async (req, res) => {
 
     } catch (err) {
         res.status(400).json({
-            message: "err"
+            message: err.message
         })
+        console.log(err.message)
     }
 })
 

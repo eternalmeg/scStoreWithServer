@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {UserService} from "../../user/user.service";
 import {Router} from "@angular/router";
 import {headerAnimation} from "../../shared/animation";
@@ -9,9 +9,12 @@ import {headerAnimation} from "../../shared/animation";
   styleUrls: ['./header.component.css'],
   animations: [headerAnimation],
 })
-export class HeaderComponent {
+
+
+export class HeaderComponent implements OnInit{
 
   headerState = 'default';
+  isLoggedIn = false;
 
 
   @HostListener('window:scroll', [])
@@ -24,16 +27,14 @@ export class HeaderComponent {
       this.headerState = 'default';
     }
   }
-
-
   constructor(private userService: UserService, private router: Router) {
   }
-
-
-
-  get isLoggedIn(): boolean {
-    return this.userService.isLoggedIn;
+  ngOnInit() {
+    this.userService.user$.subscribe((user) => {
+      this.isLoggedIn = !!user;
+    })
   }
+
 
   logoutHandler() : void {
     this.userService.logout().subscribe({
