@@ -10,15 +10,12 @@ const deviceSchema = new mongoose.Schema({
     brand: {
         type: String,
         minLength: [2, 'Minimum characters 2'],
-        maxLength: [12, 'Max characters 12'],
-        required: true,
-        validate: noSpaceValidator
+        required: true
     },
     model: {
         type: String,
-        minLength: [2, 'Minimum characters 2'],
-        maxLength: [15, 'Max characters: 15'],
-        required: true,
+        minLength: [5, 'Minimum characters 5'],
+        required: true
     },
     image: {
         type: String,
@@ -28,8 +25,7 @@ const deviceSchema = new mongoose.Schema({
     description: {
         type: String,
         minLength: [10, 'Minimum characters 10'],
-        maxLength: [480, 'Max characters: 480'],
-        required: true,
+        required: true
     },
     price: {
         type: Number,

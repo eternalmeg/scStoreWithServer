@@ -45,16 +45,13 @@
 
         <div class="fields">
           <div class="field">
-            <input type="text" name="name"  ngModel #name="ngModel" appNoSpacesOrTabs appNoScripts minlength="2" maxlength="20" [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'" />
+            <input type="text" name="name"  ngModel #name="ngModel" required minlength="5" [@fieldAnimation]="name.touched && name.invalid ? 'invalid' : 'valid'" />
             <div class="error" *ngIf="name.touched">
               <div *ngIf="name.errors?.['noSpacesOrTabs'] ">
                 No empty fields allowed!
               </div>
               <div *ngIf="name.errors?.['minlength'] ">
-                At least 2 characters!
-              </div>
-              <div *ngIf="name.errors?.['noScripts'] ">
-                Scripts or HTML tags are not allowed!
+                Name must be more then 5 characters!
               </div>
 
             </div>
@@ -62,7 +59,7 @@
 
           <div class="field">
 
-            <input type="text" name="phone"   ngModel #phone="ngModel" minlength="6" maxlength="12" appNoSpacesOrTabs appNoScripts [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
+            <input type="text" name="phone"   ngModel #phone="ngModel" required min="1" max="15" [@fieldAnimation]="phone.touched && phone.invalid ? 'invalid' : 'valid'"/>
             <div class="error" *ngIf="phone.touched">
               <div *ngIf="phone.errors?.['minlength']">
                At least 6 characters!
@@ -73,8 +70,8 @@
               <div *ngIf="phone.errors?.['noSpacesOrTabs']">
                 No empty fields allowed!
               </div>
-              <div *ngIf="phone.errors?.['noScripts'] ">
-                Scripts or HTML tags are not allowed!
+              <div *ngIf="phone.errors?.['min'] || phone.errors?.['max']">
+                Phone number must be between 1 and 105!
               </div>
             </div>
           </div>
