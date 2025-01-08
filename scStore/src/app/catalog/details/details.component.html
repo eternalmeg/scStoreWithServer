@@ -25,9 +25,6 @@
           <div id="description">
             <p *ngIf="!isExpanded">{{ truncatedDescription }}</p>
             <p *ngIf="isExpanded">{{device?.description}}</p>
-            <button class="read-more-btn" (click)="toggleDescription()">
-              {{ isExpanded ? 'Read Less' : 'Read More' }}
-            </button>
           </div>
 
         </div>
